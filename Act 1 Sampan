@@ -1,26 +1,97 @@
 using System;
+using System.Collections.Generic;
 
 class Program
 {
+     
+    static Dictionary<string, string> history = new Dictionary<string, string>();
+
     static void Main()
     {
-        Console.WriteLine("Enter Number:");
-
-
-        string input = Console.ReadLine();
-
-        if (input == "0")
+        while (true)
         {
-            Console.WriteLine("L");
+            
+            Console.WriteLine("Menu:");
+            Console.WriteLine("1. Enter Number");
+            Console.WriteLine("2. View History");
+            Console.WriteLine("3. Exit");
+            Console.Write("Choose an option: ");
 
+          
+            string menuChoice = Console.ReadLine();
+
+            if (menuChoice == "3")
+            {
+                Console.WriteLine("Exiting the program. GOD IS GOOD ALL THE TIME!");
+                break; // Exit the loop to end the program
+            }
+            else if (menuChoice == "1")
+            {
+               
+                Console.WriteLine("Enter Number (0 or 1):");
+                string input = Console.ReadLine();
+
+                
+                if (input == "0")
+                {
+                    DisplayOutput("L", ConsoleColor.Red);
+                    AddToHistory(input, "L");
+                }
+                else if (input == "1")
+                {
+                    DisplayOutput("H", ConsoleColor.Green);
+                    AddToHistory(input, "H");
+                }
+                else
+                {
+                    DisplayOutput("Invalid input. Please enter 0 or 1.", ConsoleColor.Yellow);
+                }
+            }
+            else if (menuChoice == "2")
+            {
+                
+                Console.WriteLine("History:");
+                if (history.Count == 0)
+                {
+                    Console.WriteLine("No history available.");
+                }
+                else
+                {
+                    foreach (var entry in history)
+                    {
+                        Console.WriteLine($"Input: {entry.Key}, Output: {entry.Value}");
+                    }
+                }
+            }
+            else
+            {
+                
+                DisplayOutput("Invalid menu choice. Please enter 1, 2, or 3.", ConsoleColor.Yellow);
+            }
+
+            
+            Console.WriteLine();
         }
-        else if (input == "1")
+    }
+
+   
+    static void DisplayOutput(string message, ConsoleColor color)
+    {
+        Console.ForegroundColor = color;
+        Console.WriteLine(message);
+        Console.ResetColor();
+    }
+
+    
+    static void AddToHistory(string input, string output)
+    {
+        if (!history.ContainsKey(input))
         {
-            Console.WriteLine("H");
+            history[input] = output;
         }
         else
         {
-            Console.WriteLine("Invalid input. Please enter 0 or 1.");
+            history[input] += $", {output}";
         }
     }
 }
