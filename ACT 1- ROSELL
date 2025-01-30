@@ -1,0 +1,37 @@
+
+using System;
+
+public class trial
+{
+    public static void Main(string[] args)
+    {
+        int i;
+        do
+        {
+            Console.Write("Enter a number: ");
+            string input = Console.ReadLine();
+
+            if (int.TryParse(input, out i)) 
+            {
+                if (i == 0)
+                {
+                    Console.WriteLine("L");
+                }
+                else if (i == 1)
+                {
+                    Console.WriteLine("H");
+                }
+                else
+                {
+                    Console.WriteLine("Please enter 0 or 1.");
+                }
+            }
+            else
+            {
+            }
+
+        } while (i < 2);
+
+        Console.WriteLine("End the program");
+    }
+}
