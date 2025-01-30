@@ -10,17 +10,26 @@ class Program
 
             if (input == 0)
             {
-                Console.WriteLine("L (Closed Red)");
+                Console.ForegroundColor = ConsoleColor.Red;
+                
+                Console.WriteLine("L");
+                
+                Console.ResetColor();
                 break;
             }
             else if (input == 1)
             {
-                Console.WriteLine("H (LED Green)");
+                Console.ForegroundColor = ConsoleColor.Green; 
+                Console.WriteLine("H");
+               
+                Console.ResetColor(); 
                 break;
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Yellow; 
                 Console.WriteLine("Invalid input. Please enter 0 or 1.");
+                Console.ResetColor(); 
             }
         }
     }
