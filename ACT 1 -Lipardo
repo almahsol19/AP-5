@@ -3,55 +3,57 @@
 
 using namespace std;
 
-
-#define ON  SETDTR
-#define OFF CLRDTR
-
 int main() {
-   
-    printf("COM Port number [1-9]: ");
+    int comPort;
+    cout << "COM Port number [1-9]: ";
+    cin >> comPort;
 
-  
-    char path[] = "\\.\\COMx";
-    cin >> path[6];
+    // Validate COM port input
+    if (comPort < 1 || comPort > 9) {
+        cerr << "Invalid COM port number. Must be between 1 and 9." << endl;
+        return -1;
+    }
+
+    // Create the correct COM port path
+    char path[10];
+    sprintf(path, "\\\\.\\COM%d", comPort); // Safe way to handle COMx path
 
     HANDLE hComm = CreateFileA(
         path,
         GENERIC_READ | GENERIC_WRITE,
         0,
-        0,
+        nullptr,
         OPEN_EXISTING,
-        NULL,
-        0);
+        0,
+        nullptr
+    );
 
     if (hComm == INVALID_HANDLE_VALUE) {
-        printf("Error. Check COM Port?");
+        cerr << "Error opening COM port. Check if the port is correct. Error code: " << GetLastError() << endl;
         return -1;
     }
 
- 
-    char input;
+    char key;
+    bool ledState = false;  // false = OFF, true = ON
 
     do {
-        // Ask the user for input (0 or 1 to control the LED)
-        cout << "Enter '1' to turn ON the LED, '0' to turn OFF, or 'q' to quit: ";
-        cin >> input;
+        // Toggle LED state
+        ledState = !ledState;
 
-        if (input == '1') {
-            EscapeCommFunction(hComm, ON); 
-            cout << "LED turned ON" << endl;
-        } else if (input == '0') {
-            EscapeCommFunction(hComm, OFF); 
-            cout << "LED turned OFF" << endl;
-        } else if (input != 'q') {
-            cout << "Invalid input. Please enter '0', '1', or 'q'." << endl;
+        if (!EscapeCommFunction(hComm, ledState ? SETDTR : CLRDTR)) {
+            cerr << "Failed to change LED state. Error: " << GetLastError() << endl;
+        } else {
+            cout << "LED turned " << (ledState ? "ON" : "OFF") << endl;
         }
 
-    } while (input != 'q');
+        // Ask user for input
+        cout << "Enter any key to toggle LED [q to quit]: ";
+        cin >> key;
 
- 
+    } while (key != 'q');
+
+    // Close the COM handle
     CloseHandle(hComm);
-
     cout << "Program exited." << endl;
 
     return 0;
