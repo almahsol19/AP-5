@@ -21,10 +21,13 @@ public class LEDBlinker
     {
         string[] colors = { "Red", "Green", "Blue", "Yellow", "Cyan", "Magenta" };
 
-        Console.WriteLine("Press any key to stop...");
+        Console.WriteLine("Press ESC to stop...");
 
-        while (!Console.KeyAvailable)
+        while (true)
         {
+            if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)
+                break;
+
             BlinkLED(colors);
         }
 
