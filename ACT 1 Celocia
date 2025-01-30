@@ -1,26 +1,65 @@
-using System;
+#include <iostream>
+#include <string>
 
-class Program
+void SetConsoleColor(int color)
 {
-    static void Main()
+    #ifdef _WIN32
+    
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(hConsole, color);
+    #else
+     
+        if (color == 12)
+            std::cout << "\033[31m";
+        else if (color == 10)
+            std::cout << "\033[32m";
+    #endif
+}
+
+void ResetConsoleColor()
+{
+    #ifdef _WIN32
+     
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(hConsole, 7);
+    #else
+        std::cout << "\033[0m";
+    #endif
+}
+
+int main()
+{
+    std::string input;
+
+    while (true)
     {
-        Console.WriteLine("Enter Number:");
+        std::cout << "Enter Number (or type 'exit' to quit):" << std::endl;
+        std::cin >> input;
 
-
-        string input = Console.ReadLine();
+        if (input == "exit")
+        {
+            std::cout << "Exiting the program. Goodbye!" << std::endl;
+            break;
+        }
 
         if (input == "0")
         {
-            Console.WriteLine("L");
-
+            SetConsoleColor(12); 
+            std::cout << "L" << std::endl;
+            ResetConsoleColor();
         }
         else if (input == "1")
         {
-            Console.WriteLine("H");
+            SetConsoleColor(10);
+            std::cout << "H" << std::endl;
+            ResetConsoleColor();
         }
         else
         {
-            Console.WriteLine("Invalid input. Please enter 0 or 1.");
+            std::cout << "Invalid input. Please enter 0 or 1." << std::endl;
         }
+        std::cout << std::endl;
     }
+
+    return 0;
 }
