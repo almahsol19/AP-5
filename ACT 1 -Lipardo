@@ -1,0 +1,58 @@
+#include <iostream>
+#include <windows.h>
+
+using namespace std;
+
+
+#define ON  SETDTR
+#define OFF CLRDTR
+
+int main() {
+   
+    printf("COM Port number [1-9]: ");
+
+  
+    char path[] = "\\.\\COMx";
+    cin >> path[6];
+
+    HANDLE hComm = CreateFileA(
+        path,
+        GENERIC_READ | GENERIC_WRITE,
+        0,
+        0,
+        OPEN_EXISTING,
+        NULL,
+        0);
+
+    if (hComm == INVALID_HANDLE_VALUE) {
+        printf("Error. Check COM Port?");
+        return -1;
+    }
+
+ 
+    char input;
+
+    do {
+        // Ask the user for input (0 or 1 to control the LED)
+        cout << "Enter '1' to turn ON the LED, '0' to turn OFF, or 'q' to quit: ";
+        cin >> input;
+
+        if (input == '1') {
+            EscapeCommFunction(hComm, ON); 
+            cout << "LED turned ON" << endl;
+        } else if (input == '0') {
+            EscapeCommFunction(hComm, OFF); 
+            cout << "LED turned OFF" << endl;
+        } else if (input != 'q') {
+            cout << "Invalid input. Please enter '0', '1', or 'q'." << endl;
+        }
+
+    } while (input != 'q');
+
+ 
+    CloseHandle(hComm);
+
+    cout << "Program exited." << endl;
+
+    return 0;
+}
