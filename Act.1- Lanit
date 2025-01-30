@@ -20,7 +20,7 @@ class Program
             }
             else if (input.ToLower() == "exit")
             {
-                Console.WriteLine("Exiting the program. Goodbye!");
+                Console.WriteLine("Exiting the program.");
                 break;
             }
             else
