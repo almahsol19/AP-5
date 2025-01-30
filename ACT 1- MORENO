@@ -1,26 +1,16 @@
 using System;
+using System.Threading;
 
-class Program
+public class BlinkLED
 {
-    static void Main()
+    public static void Main(string[] args)
     {
-        Console.WriteLine("Enter Number:");
-
-
-        string input = Console.ReadLine();
-
-        if (input == "0")
+        for (int i = 0; i < 5; i++)
         {
-            Console.WriteLine("L");
-
-        }
-        else if (input == "1")
-        {
-            Console.WriteLine("H");
-        }
-        else
-        {
-            Console.WriteLine("Invalid input. Please enter 0 or 1.");
+            Console.WriteLine("LED ON");
+            Thread.Sleep(500); // Wait for 500 milliseconds
+            Console.WriteLine("LED OFF");
+            Thread.Sleep(500); // Wait for 500 milliseconds
         }
     }
 }
