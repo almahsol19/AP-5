@@ -12,8 +12,8 @@ int main(void)
 
     while (true) { 
         cout << "===============\n";
-        cout << "\"[0\" to " << RED_TEXT << "Red" << RESET_COLOR << "]\n"; 
-        cout << "\"[1\" to " << GREEN_TEXT << "Green" << RESET_COLOR << "]\n"; 
+        cout << "\"[0\" to " << "Red" << RESET_COLOR << "]\n"; 
+        cout << "\"[1\" to " <<  "Green" << RESET_COLOR << "]\n"; 
         cout << "\"[2\" to Exit]\n"; 
         cout << "===============\n";
         cout << "Enter a number: ";
