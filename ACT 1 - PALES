@@ -1,0 +1,38 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Simulate LED state: 0 for Red, 1 for Green
+        int input = GetInputFromUser();
+
+        if (input == 0)
+        {
+            Console.WriteLine("L");
+        }
+        else if (input == 1)
+        {
+            Console.WriteLine("H");
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter 0 or 1.");
+        }
+    }
+
+    static int GetInputFromUser()
+    {
+        Console.WriteLine("Enter number:");
+        string input = Console.ReadLine();
+
+        if (int.TryParse(input, out int state))
+        {
+            return state;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+}
