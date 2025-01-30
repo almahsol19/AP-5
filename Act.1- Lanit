@@ -1,0 +1,50 @@
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        while (true)
+        {
+            Console.WriteLine("Enter '0' for high (green LED) or '1' for low (red LED). Type 'exit' to quit.");
+            string input = Console.ReadLine();
+
+            if (input == "0")
+            {
+                BlinkLED("h - High: Green LED is on, Red LED is off", ConsoleColor.Green);
+            }
+            else if (input == "1")
+            {
+                BlinkLED("L - Low: Green LED is off, Red LED is on", ConsoleColor.Red);
+            }
+            else if (input.ToLower() == "exit")
+            {
+                Console.WriteLine("Exiting the program. Goodbye!");
+                break;
+            }
+            else
+            {
+                DisplayColorMessage("Invalid input. Please enter '0' or '1', or type 'exit' to quit.", ConsoleColor.Yellow);
+            }
+        }
+    }
+
+    static void BlinkLED(string message, ConsoleColor color)
+    {
+        for (int i = 0; i < 5; i++)  // Blink 5 times
+        {
+            DisplayColorMessage(message, color);
+            Thread.Sleep(500);  // On for 0.5 seconds
+            Console.Clear();
+            Thread.Sleep(500);  // Off for 0.5 seconds
+        }
+    }
+
+    static void DisplayColorMessage(string message, ConsoleColor color)
+    {
+        Console.ForegroundColor = color;
+        Console.WriteLine(message);
+        Console.ResetColor();
+    }
+}
