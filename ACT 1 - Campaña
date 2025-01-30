@@ -5,21 +5,33 @@ class Program
     static void Main()
     {
         Console.WriteLine("Enter Number:");
-
+        Console.WriteLine("0: Green");
+        Console.WriteLine("1: Red");
+        Console.WriteLine("2: Blue");
 
         string input = Console.ReadLine();
 
+        // Green
         if (input == "0")
         {
-            Console.WriteLine("L");
-            Console.WriteLine("True");
+            Console.WriteLine("Green");
         }
-        else if (input == "1")
+        else 
+
+        // Red
+        if (input == "1")
         {
-            Console.WriteLine("H");
-            Console.WriteLine("False");
+            Console.WriteLine("Red");
         }
         else
+
+        // Blue
+        if (input == "2")
+        {
+            Console.WriteLine("Blue");
+        }
+        else
+
         {
             Console.WriteLine("Invalid input. Please enter 0 or 1.");
         }
