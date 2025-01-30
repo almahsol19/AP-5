@@ -1,0 +1,35 @@
+using System;
+
+public class LED
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Enter any of the following H, h, 1 for LED Green or L, l, 0 for LED Red: ");
+        string led = Console.ReadLine();
+        
+        switch (led)
+        {
+            case "H":
+                Console.WriteLine("LED Green");
+                break;
+            case "h":
+                Console.WriteLine("LED Green");
+                break;
+            case "1":
+                Console.WriteLine("LED Green");
+                break;
+            case "L":
+                Console.WriteLine("LED Red");
+                break;
+            case "l":
+                Console.WriteLine("LED Red");
+                break;
+            case "0":
+                Console.WriteLine("LED Red");
+                break;
+            default:
+                Console.WriteLine("Invalid Input");
+                break;
+        }
+    }
+}
