@@ -1,0 +1,91 @@
+using System;
+using System.Threading;
+
+public class LedSimulator
+{
+    private static bool ledState = false;
+    private static bool autoBlink = false;
+    private static Thread blinkThread;
+
+    public static void Main(string[] args)
+    {
+        blinkThread = new Thread(AutoBlink);
+
+        while (true)
+        {
+            Console.WriteLine("Enter '1' to set LED Green:");
+            Console.WriteLine("Enter '0'  to set LED Red:");
+            Console.WriteLine("Enter 'A' to start auto-blink:");
+            Console.WriteLine("Enter 'S' to stop auto-blink:");
+            Console.WriteLine("Enter 'X' to stop auto-blink:");
+
+
+            string input = Console.ReadLine().ToUpper();
+
+            if (input == "1")
+            {
+                ledState = true;
+                Console.WriteLine("LED is Green");
+                StopAutoBlink(); // Stop auto-blink if it's running
+            }
+            else if (input == "0")
+            {
+                ledState = false;
+                Console.WriteLine("LED is Red");
+                StopAutoBlink(); // Stop auto-blink if it's running
+            }
+            else if (input == "A")
+            {
+                StartAutoBlink();
+            }
+            else if (input == "S")
+            {
+                StopAutoBlink();
+            }
+            else if (input == "X")
+            {
+                Console.WriteLine("Exiting program.");
+                StopAutoBlink(); // Ensure auto-blink is stopped before exiting
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter 1, 0, A, S, or X.");
+            }
+        }
+    }
+
+    static void AutoBlink()
+    {
+        while (autoBlink)
+        {
+            ledState = !ledState;
+            Console.WriteLine($"LED is {(ledState ? "Green" : "Red")}");
+            Thread.Sleep(500);
+        }
+    }
+
+    static void StartAutoBlink()
+    {
+        if (autoBlink)
+        {
+            Console.WriteLine("Auto-blink is already running.");
+            return;
+        }
+        autoBlink = true;
+        blinkThread = new Thread(AutoBlink);
+        blinkThread.Start();
+        Console.WriteLine("Auto-blink started.");
+    }
+
+    static void StopAutoBlink()
+    {
+        if (!autoBlink)
+        {
+            Console.WriteLine("Auto-blink is not running.");
+            return;
+        }
+        autoBlink = false;
+        Console.WriteLine("Auto-blink stopped.");
+    }
+}
