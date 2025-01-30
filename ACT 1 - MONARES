@@ -1,0 +1,36 @@
+using System;
+using System.Threading;
+
+class LED
+{
+    static void BlinkLED(string color)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            Console.WriteLine($"{color} LED ON ");
+            Thread.Sleep(1000);
+            Console.WriteLine($"{color} LED OFF ");
+            Thread.Sleep(1000);
+        }
+        Console.WriteLine($"{color} LED is now ON ");
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Press 1 for Green LED, 0 for Red LED, or 'q' to quit.");
+
+        while (true)
+        {
+            Console.Write("\nEnter choice: ");
+            char input = Console.ReadKey().KeyChar;
+            Console.WriteLine();
+
+            if (input == 'q') break;
+            if (input == '1') BlinkLED("Green");
+            else if (input == '0') BlinkLED("Red");
+            else Console.WriteLine("Invalid input! Try again.");
+        }
+
+        Console.WriteLine("Program Ended.");
+    }
+}
