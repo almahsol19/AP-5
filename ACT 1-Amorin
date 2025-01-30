@@ -1,0 +1,61 @@
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter the number of blinks: ");
+        int blinkCount = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Select the type of blinking: ");
+        Console.WriteLine("1 - Green Blinking Only");
+        Console.WriteLine("2 - Red Blinking Only");
+        Console.WriteLine("3 - Green and Red Combined");
+        int blinkType = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < blinkCount; i++)
+        {
+            if (blinkType == 1)
+            {
+                Console.WriteLine("1 - Green LED ON");
+                Thread.Sleep(500);
+                Console.Clear();
+
+                Console.WriteLine("1 - Green LED OFF");
+                Thread.Sleep(500);
+                Console.Clear();
+            }
+            else if (blinkType == 2)
+            {
+                Console.WriteLine("0 - Red LED ON");
+                Thread.Sleep(500);
+                Console.Clear();
+
+                Console.WriteLine("0 - Red LED OFF");
+                Thread.Sleep(500);
+                Console.Clear();
+            }
+            else if (blinkType == 3)
+            {
+                Console.WriteLine("1 - Green LED ON");
+                Thread.Sleep(500);
+                Console.Clear();
+
+                Console.WriteLine("1 - Green LED OFF");
+                Thread.Sleep(500);
+                Console.Clear();
+
+                Console.WriteLine("0 - Red LED ON");
+                Thread.Sleep(500);
+                Console.Clear();
+
+                Console.WriteLine("0 - Red LED OFF");
+                Thread.Sleep(500);
+                Console.Clear();
+            }
+        }
+
+        Console.WriteLine("Blinking complete!");
+    }
+}
