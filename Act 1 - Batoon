@@ -1,53 +1,53 @@
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 class Program
 {
     static async Task Main()
     {
-        List<string> history = new List<string>(); 
-
         while (true)
         {
-            Console.Write("Enter a number (0 = RED, 1 = GREEN, 2 = EXIT): ");
+            Console.Write("Enter a number (0 = RED OFF, 1 = GREEN ON, 2 = EXIT): ");
             string input = Console.ReadLine();
 
             if (int.TryParse(input, out int num))
             {
-                string status = "";
                 switch (num)
                 {
                     case 1:
-                        status = "LED GREEN (ON)";
-                        Console.WriteLine(status);
-                        await Task.Delay(2000);
+                        Console.WriteLine("LED GREEN (ON)");
+                        await ShowCountdown(5);
+                        Console.WriteLine("LED is now OFF.");
                         break;
+
                     case 0:
-                        status = "CLOSED RED (OFF)";
-                        Console.WriteLine(status);
-                        await Task.Delay(2000);
+                        Console.WriteLine("CLOSED RED (OFF)");
+                        await Task.Delay(3000);
+                        Console.WriteLine("LED remains OFF.");
                         break;
+
                     case 2:
-                        Console.WriteLine("Exiting program...");
-                        Console.WriteLine("\n *** History of Actions ***");
-                        foreach (var record in history)
-                        {
-                            Console.WriteLine(record);
-                        }
+                        Console.WriteLine("Exiting program");
                         return; 
+
                     default:
-                        status = "Invalid input";
-                        Console.WriteLine(status);
+                        Console.WriteLine("Invalid input. Please enter 0, 1, or 2.");
                         break;
                 }
-
-                history.Add($"{DateTime.Now}: {status}"); 
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a valid number.");
+                Console.WriteLine("Sorry, Invalid input. Please enter a valid number.");
             }
+        }
+    }
+
+    static async Task ShowCountdown(int seconds)
+    {
+        for (int i = seconds; i > 0; i--)
+        {
+            Console.WriteLine($"Warning: LED will turn off in {i} seconds");
+            await Task.Delay(1000); 
         }
     }
 }
