@@ -29,8 +29,7 @@ public class Main
             
             
         
-        } while (i < 2);
-
-        Console.WriteLine("End the program");
+        } while (i <=2);
+console.writeline (" exit");
     }
 }
