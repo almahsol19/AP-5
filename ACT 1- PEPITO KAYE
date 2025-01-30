@@ -30,6 +30,6 @@ public class LED
             
         
         } while (i <=2);
-console.writeline("exit");
+Console.WriteLine("exit");
     }
 }
