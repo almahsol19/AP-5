@@ -1,0 +1,50 @@
+using System;
+using System.Threading; 
+
+class Program
+{
+    static void BlinkLED(string color, int duration = 5, int interval = 500)
+    {
+        for (int i = 0; i < duration; i++)
+        {
+            Console.WriteLine(color + " LED ON"); 
+            Thread.Sleep(interval); 
+            Console.WriteLine(color + " LED OFF"); 
+            Thread.Sleep(interval
+            );Console.WriteLine(color + " LED STEADY ON");
+        }
+        Console.WriteLine(color + "LED STEADY ON");
+    }
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter number 0 for Red, Enter 1 for Green:");
+
+        while (true)
+        {
+            string input = Console.ReadLine();
+
+            if (int.TryParse(input, out int number))
+            {
+                if (number == 0)
+                {
+                    BlinkLED("Red");
+                }
+                else if (number == 1)
+                {
+                    BlinkLED("Green");
+                }
+                else
+                {
+                    break; 
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter 0 for Red, Enter 1 for Green.");
+            }
+        }
+
+        Console.WriteLine("Exiting.");
+    }
+}
