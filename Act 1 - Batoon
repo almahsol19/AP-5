@@ -16,13 +16,13 @@ class Program
                 {
                     case 1:
                         Console.WriteLine("LED GREEN (ON)");
-                        await ShowCountdown(5);
+                        await ShowCountdown(3);
                         Console.WriteLine("LED is now OFF.");
                         break;
 
                     case 0:
                         Console.WriteLine("CLOSED RED (OFF)");
-                        await Task.Delay(3000);
+                        await Task.Delay(2000);
                         Console.WriteLine("LED remains OFF.");
                         break;
 
