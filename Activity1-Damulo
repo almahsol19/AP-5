@@ -1,0 +1,23 @@
+using System; 
+
+public class HelloWorld
+{
+public static void Main(string[]args)
+{
+Console.WriteLine("Enter number: ");
+int status = Convert.ToInt32(Console.ReadLine());
+
+if (status == 0)
+{
+Console.WriteLine("Red");
+} else if (status == 1) 
+{
+Console.WriteLine("Green");
+}
+else {
+Console.WriteLine("Invalid number, Enter 1 or 0: ");
+status = Convert.ToInt32(Console.ReadLine());
+}
+
+}
+}
