@@ -4,20 +4,24 @@ class Program
 {
     static void Main()
     {
-        // Simulate LED state: 0 for Red, 1 for Green
-        int input = GetInputFromUser();
+        while (true)
+        {
+            int input = GetInputFromUser();
 
-        if (input == 0)
-        {
-            Console.WriteLine("L");
-        }
-        else if (input == 1)
-        {
-            Console.WriteLine("H");
-        }
-        else
-        {
-            Console.WriteLine("Invalid input. Please enter 0 or 1.");
+            if (input == 0)
+            {
+                Console.WriteLine("L (Closed Red)");
+                break;
+            }
+            else if (input == 1)
+            {
+                Console.WriteLine("H (LED Green)");
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter 0 or 1.");
+            }
         }
     }
 
