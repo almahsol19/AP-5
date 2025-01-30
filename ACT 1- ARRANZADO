@@ -1,19 +1,38 @@
 #include <iostream>
 using namespace std;
 
+#define RED_TEXT "\033[31m" 
+#define GREEN_TEXT "\033[32m"
+#define YELLOW_TEXT "\033[33m" 
+#define RESET_COLOR "\033[0m"
+
 int main(void)
 {   
     int num;
 
-    cout << "\"0\" to Red, \"1\" to Green" << endl; 
-    cout << "Enter a number: "; 
-    cin >> num;
-    if (num == 0)
-        cout << "RED" << endl;  
-    else if (num == 1)
-        cout << "GREEN" << endl; 
-    else 
-        cout << "Invalid input" << endl;
+    while (true) { 
+        cout << "===============\n";
+        cout << "\"[0\" to " << RED_TEXT << "Red" << RESET_COLOR << "]\n"; 
+        cout << "\"[1\" to " << GREEN_TEXT << "Green" << RESET_COLOR << "]\n"; 
+        cout << "\"[2\" to Exit]\n"; 
+        cout << "===============\n";
+        cout << "Enter a number: ";
+        
+        cin >> num;
+
+        if (num == 2) {
+            cout << YELLOW_TEXT << "Exiting program..." << RESET_COLOR << endl;
+            break; 
+        } else if (num == 0) {
+            cout << RED_TEXT << "RED" << RESET_COLOR << endl;
+        } else if (num == 1) {
+            cout << GREEN_TEXT << "GREEN" << RESET_COLOR << endl;
+        } else {
+            cout << YELLOW_TEXT << "Invalid input" << RESET_COLOR << endl;
+        }
+
+        cout << endl; 
+    }
 
     return 0;
 }
