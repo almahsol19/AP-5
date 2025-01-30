@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main(void)
+{   
+    int num;
+
+    cout << "\"0\" to Red, \"1\" to Green" << endl; 
+    cout << "Enter a number: "; 
+    cin >> num;
+    if (num == 0)
+        cout << "RED" << endl;  
+    else if (num == 1)
+        cout << "GREEN" << endl; 
+    else 
+        cout << "Invalid input" << endl;
+
+    return 0;
+}
