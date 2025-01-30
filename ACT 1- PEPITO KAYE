@@ -1,7 +1,7 @@
 
 using System;
 
-public class Main
+public class LED
 {
     public static void Main(string[] args)
     {
@@ -30,6 +30,6 @@ public class Main
             
         
         } while (i <=2);
-console.writeline (" exit");
+console.writeline("exit");
     }
 }
