@@ -1,0 +1,41 @@
+using System;
+using System.Threading;
+
+public class LedSimulator
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Enter '1' for green LED, '0' for red LED, or any other key to exit:");
+        string input = Console.ReadLine()?.ToLower();
+
+        if (input == "1")
+        {
+            SimulateLedBlink("Green", 5);
+        }
+        else if (input == "0")
+        {
+            SimulateLedBlink("Red", 5); 
+        }
+        else
+        {
+            Console.WriteLine("Exiting.");
+        }
+    }
+
+    static void SimulateLedBlink(string color, int seconds)
+    {
+        Console.WriteLine($"L- {color}"); 
+        int startTime = Environment.TickCount;
+
+        while (Environment.TickCount - startTime < seconds * 1000) 
+        {
+            Console.WriteLine($"{color} LED: ON");
+            Thread.Sleep(500); 
+            Console.WriteLine($"{color} LED: OFF");
+            Thread.Sleep(500); 
+            Console.Clear(); 
+        }
+        Console.WriteLine($"{color} LED simulation ended."); 
+
+    }
+}
