@@ -1,0 +1,33 @@
+using System;
+using System.Threading;
+
+public class LEDBlinker
+{
+    public static void SetLEDColor(string color)
+    {
+        Console.WriteLine($"Setting LED color to {color}");
+    }
+
+    public static void BlinkLED(string[] colors, int delayMs = 500)
+    {
+        foreach (string color in colors)
+        {
+            SetLEDColor(color);
+            Thread.Sleep(delayMs);
+        }
+    }
+
+    public static void Main()
+    {
+        string[] colors = { "Red", "Green", "Blue", "Yellow", "Cyan", "Magenta" };
+
+        Console.WriteLine("Press any key to stop...");
+
+        while (!Console.KeyAvailable)
+        {
+            BlinkLED(colors);
+        }
+
+        Console.WriteLine("\nLED Blinking stopped.");
+    }
+}
