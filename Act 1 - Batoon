@@ -16,7 +16,7 @@ class Program
                 {
                     case 1:
                         Console.WriteLine("LED GREEN (ON)");
-                        await ShowCountdown(3);
+                        await Countdown(3);
                         Console.WriteLine("LED is now OFF.");
                         break;
 
@@ -42,7 +42,7 @@ class Program
         }
     }
 
-    static async Task ShowCountdown(int seconds)
+    static async Task Countdown(int seconds)
     {
         for (int i = seconds; i > 0; i--)
         {
