@@ -1,0 +1,46 @@
+using System;
+using System.Threading;
+
+public class LedBlinker
+{
+    public static void Main(string[] args)
+    {
+        while (true)
+        {
+            Console.WriteLine("Enter 1 for green, 0 for red, or '-1' to quit:");
+            string input = Console.ReadLine().ToLower();
+
+            if (input == "-1")
+            {
+                break;
+            }
+            else if (input == "1")
+            {
+                Console.WriteLine("Green LED blinking...");
+                for (int i = 0; i < 5; i++) // 5 blinks
+                {
+                    Console.WriteLine("LED: Green ON");
+                    Thread.Sleep(500);
+                    Console.WriteLine("LED: Green OFF");
+                    Thread.Sleep(500);
+                }
+            }
+            else if (input == "0")
+            {
+                Console.WriteLine("Red LED blinking...");
+                for (int i = 0; i < 5; i++) // 5 blinks
+                {
+                    Console.WriteLine("LED: Red ON");
+                    Thread.Sleep(500);
+                    Console.WriteLine("LED: Red OFF");
+                    Thread.Sleep(500);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter only 1, 0, or '-1'.");
+            }
+        }
+        Console.WriteLine("Program ended.");
+    }
+}
