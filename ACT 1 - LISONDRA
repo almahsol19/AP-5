@@ -1,26 +1,82 @@
-using System;
+#include <iostream>
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif
 
-class Program
-{
-    static void Main()
-    {
-        Console.WriteLine("Enter Number:");
-
-
-        string input = Console.ReadLine();
-
-        if (input == "0")
-        {
-            Console.WriteLine("L");
-
-        }
-        else if (input == "1")
-        {
-            Console.WriteLine("H");
-        }
-        else
-        {
-            Console.WriteLine("Invalid input. Please enter 0 or 1.");
-        }
+void SetConsoleColor(int color) {
+#ifdef _WIN32
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+#else
+    if (color == 2) {
+        std::cout << "\033[32m"; // Green
+    } else if (color == 4) {
+        std::cout << "\033[31m"; // Red
+    } else {
+        std::cout << "\033[0m";  // Reset
     }
+#endif
+}
+
+void PrintLargeH() {
+    std::cout << "\n";
+    std::cout << "\n";
+    std::cout << "       H       H\n";
+    std::cout << "       H       H\n";
+    std::cout << "       H       H\n";
+    std::cout << "       HHHHHHHHH\n";
+    std::cout << "       H       H\n";
+    std::cout << "       H       H\n";
+    std::cout << "       H       H\n";
+    std::cout << "\n";
+    std::cout << "\n";
+}
+
+void PrintLargeL() {
+    std::cout << "\n";
+    std::cout << "\n";
+    std::cout << "       L       \n";
+    std::cout << "       L       \n";
+    std::cout << "       L       \n";
+    std::cout << "       L       \n";
+    std::cout << "       L       \n";
+    std::cout << "       L       \n";
+    std::cout << "       LLLLLLLLL\n";
+    std::cout << "\n";
+    std::cout << "\n";
+}
+
+int main() {
+    std::string input;
+
+    while (true) {
+        std::cout << "Enter Number (0, 1, or 2 to exit):" << std::endl;
+
+        
+        std::cin >> input;
+
+        
+        if (input == "0") {
+            SetConsoleColor(4);  
+            PrintLargeL();  
+        } else if (input == "1") {
+            SetConsoleColor(2);  
+            PrintLargeH();  
+        } else if (input == "2") {
+            break; 
+        } else {
+            
+            SetConsoleColor(0);
+            
+            std::cout << "Invalid input. Please enter 0, 1, or 2 to exit." << std::endl;
+        }
+
+        SetConsoleColor(0);
+    }
+   
+    std::cout << "\n";
+    std::cout << "     Program ended." << std::endl;
+
+    return 0;
 }
