@@ -1,0 +1,217 @@
+#include <iostream>
+using namespace std;
+
+void displayLetter(char ch, int spaces) {
+    string letterPattern[5];
+
+if (ch == 'A' || ch == 'a') { 
+    letterPattern[0] = "  *  ";
+    letterPattern[1] = " * * ";
+    letterPattern[2] = "*****";
+    letterPattern[3] = "*   *";
+    letterPattern[4] = "*   *";
+}
+else if (ch == 'B' || ch == 'b') { 
+    letterPattern[0] = "**** ";
+    letterPattern[1] = "*   *";
+    letterPattern[2] = "**** ";
+    letterPattern[3] = "*   *";
+    letterPattern[4] = "**** ";
+}
+else if (ch == 'C' || ch == 'c') { 
+    letterPattern[0] = " ****";
+    letterPattern[1] = "*    ";
+    letterPattern[2] = "*    ";
+    letterPattern[3] = "*    ";
+    letterPattern[4] = " ****";
+}
+else if (ch == 'D' || ch == 'd') { 
+    letterPattern[0] = "**** ";
+    letterPattern[1] = "*   *";
+    letterPattern[2] = "*   *";
+    letterPattern[3] = "*   *";
+    letterPattern[4] = "**** ";
+}
+else if (ch == 'E' || ch == 'e') { 
+    letterPattern[0] = "*****";
+    letterPattern[1] = "*    ";
+    letterPattern[2] = "**** ";
+    letterPattern[3] = "*    ";
+    letterPattern[4] = "*****";
+}
+else if (ch == 'F' || ch == 'f') { 
+    letterPattern[0] = "*****";
+    letterPattern[1] = "*    ";
+    letterPattern[2] = "**** ";
+    letterPattern[3] = "*    ";
+    letterPattern[4] = "*    ";
+}
+else if (ch == 'G' || ch == 'g') { 
+    letterPattern[0] = " ****";
+    letterPattern[1] = "*    ";
+    letterPattern[2] = "*  **";
+    letterPattern[3] = "*   *";
+    letterPattern[4] = " ****";
+}
+else if (ch == 'H' || ch == 'h') { 
+    letterPattern[0] = "*   *";
+    letterPattern[1] = "*   *";
+    letterPattern[2] = "*****";
+    letterPattern[3] = "*   *";
+    letterPattern[4] = "*   *";
+}
+else if (ch == 'I' || ch == 'i') { 
+    letterPattern[0] = " *** ";
+    letterPattern[1] = "  *  ";
+    letterPattern[2] = "  *  ";
+    letterPattern[3] = "  *  ";
+    letterPattern[4] = " *** ";
+}
+else if (ch == 'J' || ch == 'j') { 
+    letterPattern[0] = "  ***";
+    letterPattern[1] = "   * ";
+    letterPattern[2] = "   * ";
+    letterPattern[3] = "*  * ";
+    letterPattern[4] = " **  ";
+}
+else if (ch == 'K' || ch == 'k') { 
+    letterPattern[0] = "*   *";
+    letterPattern[1] = "*  * ";
+    letterPattern[2] = "**   ";
+    letterPattern[3] = "*  * ";
+    letterPattern[4] = "*   *";
+}
+else if (ch == 'L' || ch == 'l') { 
+    letterPattern[0] = "*    ";
+    letterPattern[1] = "*    ";
+    letterPattern[2] = "*    ";
+    letterPattern[3] = "*    ";
+    letterPattern[4] = "*****";
+}
+else if (ch == 'M' || ch == 'm') { 
+    letterPattern[0] = "*   *";
+    letterPattern[1] = "** **";
+    letterPattern[2] = "* * *";
+    letterPattern[3] = "*   *";
+    letterPattern[4] = "*   *";
+}
+else if (ch == 'N' || ch == 'n') { 
+    letterPattern[0] = "*   *";
+    letterPattern[1] = "**  *";
+    letterPattern[2] = "* * *";
+    letterPattern[3] = "*  **";
+    letterPattern[4] = "*   *";
+}
+else if (ch == 'O' || ch == 'o') { 
+    letterPattern[0] = " *** ";
+    letterPattern[1] = "*   *";
+    letterPattern[2] = "*   *";
+    letterPattern[3] = "*   *";
+    letterPattern[4] = " *** ";
+}
+else if (ch == 'P' || ch == 'p') { 
+    letterPattern[0] = "**** ";
+    letterPattern[1] = "*   *";
+    letterPattern[2] = "**** ";
+    letterPattern[3] = "*    ";
+    letterPattern[4] = "*    ";
+}
+else if (ch == 'Q' || ch == 'q') { 
+    letterPattern[0] = " *** ";
+    letterPattern[1] = "*   *";
+    letterPattern[2] = "* * *";
+    letterPattern[3] = "*  **";
+    letterPattern[4] = " ****";
+}
+else if (ch == 'R' || ch == 'r') { 
+    letterPattern[0] = "**** ";
+    letterPattern[1] = "*   *";
+    letterPattern[2] = "**** ";
+    letterPattern[3] = "*  * ";
+    letterPattern[4] = "*   *";
+}
+else if (ch == 'S' || ch == 's') { 
+    letterPattern[0] = " ****";
+    letterPattern[1] = "*    ";
+    letterPattern[2] = " *** ";
+    letterPattern[3] = "    *";
+    letterPattern[4] = "**** ";
+}
+else if (ch == 'T' || ch == 't') { 
+    letterPattern[0] = "*****";
+    letterPattern[1] = "  *  ";
+    letterPattern[2] = "  *  ";
+    letterPattern[3] = "  *  ";
+    letterPattern[4] = "  *  ";
+}
+else if (ch == 'U' || ch == 'u') { 
+    letterPattern[0] = "*   *";
+    letterPattern[1] = "*   *";
+    letterPattern[2] = "*   *";
+    letterPattern[3] = "*   *";
+    letterPattern[4] = " *** ";
+}
+else if (ch == 'V' || ch == 'v') { 
+    letterPattern[0] = "*   *";
+    letterPattern[1] = "*   *";
+    letterPattern[2] = "*   *";
+    letterPattern[3] = " * * ";
+    letterPattern[4] = "  *  ";
+}
+else if (ch == 'W' || ch == 'w') { 
+    letterPattern[0] = "*   *";
+    letterPattern[1] = "*   *";
+    letterPattern[2] = "* * *";
+    letterPattern[3] = "** **";
+    letterPattern[4] = "*   *";
+}
+else if (ch == 'X' || ch == 'x') { 
+    letterPattern[0] = "*   *";
+    letterPattern[1] = " * * ";
+    letterPattern[2] = "  *  ";
+    letterPattern[3] = " * * ";
+    letterPattern[4] = "*   *";
+}
+else if (ch == 'Y' || ch == 'y') { 
+    letterPattern[0] = "*   *";
+    letterPattern[1] = " * * ";
+    letterPattern[2] = "  *  ";
+    letterPattern[3] = "  *  ";
+    letterPattern[4] = "  *  ";
+}
+else if (ch == 'Z' || ch == 'z') { 
+    letterPattern[0] = "*****";
+    letterPattern[1] = "   * ";
+    letterPattern[2] = "  *  ";
+    letterPattern[3] = " *   ";
+    letterPattern[4] = "*****";
+}
+
+    
+    for (int i = 0; i < 5; i++) {
+        cout << string(spaces, ' ') << letterPattern[i] << endl;
+    }
+}
+
+void displayWordDiagonally(const string &word) {
+    int verticalSpacing = 10;
+    int spaces = 0;
+    
+    for (char ch : word) {
+        if (ch == ' ') {
+            spaces += 5;
+            continue;
+        }
+        displayLetter(ch, spaces);
+        spaces += verticalSpacing;
+    }
+}
+
+int main() {
+    string word;
+    cout << "Enter a name: ";
+    getline(cin, word);
+    cout << endl;
+    displayWordDiagonally(word);
+    return 0;
+}

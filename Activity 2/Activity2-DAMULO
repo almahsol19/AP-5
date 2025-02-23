@@ -1,0 +1,304 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+const char* LetterAsterisk(char a, int row) {
+    switch (toupper(a)) {
+       
+        case 'A': {
+            const char* letter[] = {
+                "  *  ",
+                " * * ",
+                "*****",
+                "*   *",
+                "*   *"
+            };
+            return letter[row];
+        }
+        case 'B': {
+            const char* letter[] = {
+                "**** ",
+                "*   *",
+                "**** ",
+                "*   *",
+                "**** "
+            };
+            return letter[row];
+        }
+        case 'C': {
+            const char* letter[] = {
+                " ****",
+                "*    ",
+                "*    ",
+                "*    ",
+                " ****"
+            };
+            return letter[row];
+        }
+        case 'D': {
+            const char* letter[] = {
+                "**** ",
+                "*   *",
+                "*   *",
+                "*   *",
+                "**** "
+            };
+            return letter[row];
+        }
+        case 'E': {
+            const char* letter[] = {
+                "*****",
+                "*    ",
+                "*****",
+                "*    ",
+                "*****"
+            };
+            return letter[row];
+        }
+        case 'F': {
+            const char* letter[] = {
+                "*****",
+                "*    ",
+                "*****",
+                "*    ",
+                "*    "
+            };
+            return letter[row];
+        }
+        case 'G': {
+            const char* letter[] = {
+                " ****",
+                "*    ",
+                "*  **",
+                "*   *",
+                " ****"
+            };
+            return letter[row];
+        }
+        case 'H': {
+            const char* letter[] = {
+                "*   *",
+                "*   *",
+                "*****",
+                "*   *",
+                "*   *"
+            };
+            return letter[row];
+        }
+        case 'I': {
+            const char* letter[] = {
+                "*****",
+                "  *  ",
+                "  *  ",
+                "  *  ",
+                "*****"
+            };
+            return letter[row];
+        }
+        case 'J': {
+            const char* letter[] = {
+                "*****",
+                "   * ",
+                "   * ",
+                "*  * ",
+                " **  "
+            };
+            return letter[row];
+        }
+        case 'K': {
+            const char* letter[] = {
+                "*   *",
+                "*  * ",
+                "***  ",
+                "*  * ",
+                "*   *"
+            };
+            return letter[row];
+        }
+        case 'L': {
+            const char* letter[] = {
+                "*    ",
+                "*    ",
+                "*    ",
+                "*    ",
+                "*****"
+            };
+            return letter[row];
+        }
+        case 'M': {
+            const char* letter[] = {
+                "*   *",
+                "** **",
+                "* * *",
+                "*   *",
+                "*   *"
+            };
+            return letter[row];
+        }
+        case 'N': {
+            const char* letter[] = {
+                "*   *",
+                "**  *",
+                "* * *",
+                "*  **",
+                "*   *"
+            };
+            return letter[row];
+        }
+        case 'O': {
+            const char* letter[] = {
+                " *** ",
+                "*   *",
+                "*   *",
+                "*   *",
+                " *** "
+            };
+            return letter[row];
+        }
+        case 'P': {
+            const char* letter[] = {
+                "**** ",
+                "*   *",
+                "**** ",
+                "*    ",
+                "*    "
+            };
+            return letter[row];
+        }
+        case 'Q': {
+            const char* letter[] = {
+                " *** ",
+                "*   *",
+                "*   *",
+                "*  * ",
+                " ** *"
+            };
+            return letter[row];
+        }
+        case 'R': {
+            const char* letter[] = {
+                "**** ",
+                "*   *",
+                "**** ",
+                "*  * ",
+                "*   *"
+            };
+            return letter[row];
+        }
+        case 'S': {
+            const char* letter[] = {
+                " ****",
+                "*    ",
+                " *** ",
+                "    *",
+                "**** "
+            };
+            return letter[row];
+        }
+
+          case 'T': {
+            const char* letter[] = {
+                "*****",
+                "  *  ",
+                "  *  ",
+                "  *  ",
+                "  *  "
+            };
+            return letter[row];
+        }
+
+        case 'U': {
+            const char* letter[] = {
+                "*   *",
+                "*   *",
+                "*   *",
+                "*   *",
+                " *** "
+            };
+            return letter[row];
+        }
+        case 'V': {
+            const char* letter[] = {
+                "*   *",
+                "*   *",
+                "*   *",
+                " * * ",
+                "  *  "
+            };
+            return letter[row];
+        }
+        case 'W': {
+            const char* letter[] = {
+                "*   *",
+                "*   *",
+                "* * *",
+                "** **",
+                "*   *"
+            };
+            return letter[row];
+        }
+        case 'X': {
+            const char* letter[] = {
+                "*   *",
+                " * * ",
+                "  *  ",
+                " * * ",
+                "*   *"
+            };
+            return letter[row];
+        }
+        case 'Y': {
+            const char* letter[] = {
+                "*   *",
+                " * * ",
+                "  *  ",
+                "  *  ",
+                "  *  "
+            };
+            return letter[row];
+        }
+        case 'Z': {
+            const char* letter[] = {
+                "*****",
+                "   * ",
+                "  *  ",
+                " *   ",
+                "*****"
+            };
+            return letter[row];
+        }
+        default: {
+            const char* letter[] = {
+                "     ",
+                "     ",
+                "     ",
+                "     ",
+                "     "
+            };
+            return letter[row];
+        }
+    }
+}
+
+int main() {
+    string word;
+    
+    cout << "Input a word only: ";
+    cin >> word;
+
+    for (char &a: word) {
+        a = toupper(a);
+    }
+
+    for (int i = 0; i < word.length(); ++i) {
+        for (int row = 0; row < 5; ++row) {
+            for (int indent = 0; indent < i * 7; ++indent) {
+                cout << " ";
+            }
+            cout << LetterAsterisk(word[i], row) << endl;
+        }
+    }
+
+    return 0;
+}

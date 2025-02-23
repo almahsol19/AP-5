@@ -1,0 +1,80 @@
+using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
+class Program
+{
+
+    static void SlantedPrint(List<string> letterPattern, int spaces)
+    {
+        foreach (string row in letterPattern)
+        {
+            Console.WriteLine(new string(' ', spaces) + row);
+        }
+    }
+
+    static List<string> GetLetterPattern(char ch)
+    {
+        switch (char.ToUpper(ch))
+        {
+            case 'A': return new List<string> { "  *  ", " * * ", "*****", "*   *", "*   *" };
+            case 'B': return new List<string> { "**** ", "*   *", "**** ", "*   *", "**** " };
+            case 'C': return new List<string> { " ****", "*    ", "*    ", "*    ", " ****" };
+            case 'D': return new List<string> { "**** ", "*   *", "*   *", "*   *", "**** " };
+            case 'E': return new List<string> { "*****", "*    ", "**** ", "*    ", "*****" };
+            case 'F': return new List<string> { "*****", "*    ", "**** ", "*    ", "*    " };
+            case 'G': return new List<string> { " ****", "*    ", "*  **", "*   *", " ****" };
+            case 'H': return new List<string> { "*   *", "*   *", "*****", "*   *", "*   *" };
+            case 'I': return new List<string> { " *** ", "  *  ", "  *  ", "  *  ", " *** " };
+            case 'J': return new List<string> { "  ***", "   * ", "   * ", "*  * ", " **  " };
+            case 'K': return new List<string> { "*   *", "*  * ", "***  ", "*  * ", "*   *" };
+            case 'L': return new List<string> { "*    ", "*    ", "*    ", "*    ", "*****" };
+            case 'M': return new List<string> { "*   *", "** **", "* * *", "*   *", "*   *" };
+            case 'N': return new List<string> { "*   *", "**  *", "* * *", "*  **", "*   *" };
+            case 'O': return new List<string> { " *** ", "*   *", "*   *", "*   *", " *** " };
+            case 'P': return new List<string> { "**** ", "*   *", "**** ", "*    ", "*    " };
+            case 'Q': return new List<string> { " *** ", "*   *", "* * *", "*  * ", " ** *" };
+            case 'R': return new List<string> { "**** ", "*   *", "**** ", "*  * ", "*   *" };
+            case 'S': return new List<string> { " ****", "*    ", " *** ", "    *", "**** " };
+            case 'T': return new List<string> { "*****", "  *  ", "  *  ", "  *  ", "  *  " };
+            case 'U': return new List<string> { "*   *", "*   *", "*   *", "*   *", " *** " };
+            case 'V': return new List<string> { "*   *", "*   *", "*   *", " * * ", "  *  " };
+            case 'W': return new List<string> { "*   *", "*   *", "* * *", "** **", "*   *" };
+            case 'X': return new List<string> { "*   *", " * * ", "  *  ", " * * ", "*   *" };
+            case 'Y': return new List<string> { "*   *", " * * ", "  *  ", "  *  ", "  *  " };
+            case 'Z': return new List<string> { "*****", "   * ", "  *  ", " *   ", "*****" };
+            case ' ': return new List<string> { "     ", "     ", "     ", "     ", "     " }; // Space between words
+            default: return new List<string> { "?????", "?????", "?????", "?????", "?????" };
+        }
+    }
+
+    static bool IsValidName(string input)
+    {
+        return Regex.IsMatch(input, "^[A-Za-z ]+$");
+    }
+
+    static void Main()
+    {
+        string name;
+
+        do
+        {
+            Console.Write("Input your name: ");
+            name = Console.ReadLine();
+
+            if (!IsValidName(name))
+            {
+                Console.WriteLine("Invalid input! Please enter letters only.");
+            }
+
+        } while (!IsValidName(name));
+
+        Console.WriteLine("\nSlanting Name Output:\n");
+
+        for (int i = 0; i < name.Length; i++)
+        {
+            List<string> letterPattern = GetLetterPattern(name[i]);
+            SlantedPrint(letterPattern, i * 8); //
+        }
+    }
+}

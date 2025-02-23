@@ -1,0 +1,60 @@
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+
+void PrintSlantedLetter(const std::vector<std::string>& pattern, int horizontalOffset) {
+    for (const std::string& line : pattern) {
+        std::cout << std::string(horizontalOffset, ' ') << line << std::endl;
+    }
+}
+
+int main() {
+    std::map<char, std::vector<std::string>> letterPatterns = {
+        {'A', {"  *  ", " * * ", "*****", "*   *", "*   *"}},
+        {'B', {"**** ", "*   *", "**** ", "*   *", "**** "}},
+        {'C', {" ****", "*    ", "*    ", "*    ", " ****"}},
+        {'D', {"**** ", "*   *", "*   *", "*   *", "**** "}},
+        {'E', {"*****", "*    ", "**** ", "*    ", "*****"}},
+        {'F', {"*****", "*    ", "**** ", "*    ", "*    "}},
+        {'G', {" ****", "*    ", "*  **", "*   *", " ****"}},
+        {'H', {"*   *", "*   *", "*****", "*   *", "*   *"}},
+        {'I', {"*****", "  *  ", "  *  ", "  *  ", "*****"}},
+        {'J', {"  ****", "    * ", "    * ", "*   * ", " ***  "}},
+        {'K', {"*   *", "*  * ", "**   ", "*  * ", "*   *"}},
+        {'L', {"*    ", "*    ", "*    ", "*    ", "*****"}},
+        {'M', {"*   *", "** **", "* * *", "*   *", "*   *"}},
+        {'N', {"*   *", "**  *", "* * *", "*  **", "*   *"}},
+        {'O', {" *** ", "*   *", "*   *", "*   *", " *** "}},
+        {'P', {"**** ", "*   *", "**** ", "*    ", "*    "}},
+        {'Q', {" *** ", "*   *", "* * *", "*  **", " ****"}},
+        {'R', {"**** ", "*   *", "**** ", "*  * ", "*   *"}},
+        {'S', {" ****", "*    ", " *** ", "    *", "**** "}},
+        {'T', {"*****", "  *  ", "  *  ", "  *  ", "  *  "}},
+        {'U', {"*   *", "*   *", "*   *", "*   *", " *** "}},
+        {'V', {"*   *", "*   *", "*   *", " * * ", "  *  "}},
+        {'W', {"*   *", "*   *", "* * *", "** **", "*   *"}},
+        {'X', {"*   *", " * * ", "  *  ", " * * ", "*   *"}},
+        {'Y', {"*   *", " * * ", "  *  ", "  *  ", "  *  "}},
+        {'Z', {"*****", "   * ", "  *  ", " *   ", "*****"}},
+        {' ', {"     ", "     ", "     ", "     ", "     "}}
+    };
+
+    std::cout << "Enter a name: ";
+    std::string name;
+    std::getline(std::cin, name);
+
+    int spaceOffset = 0;
+    int letterSpacing = 2; // Adjust for spacing between letters
+
+    for (char c : name) {
+        c = toupper(c);
+        auto it = letterPatterns.find(c);
+        if (it != letterPatterns.end()) {
+            PrintSlantedLetter(it->second, spaceOffset);
+            spaceOffset += it->second[0].size() + letterSpacing; // Consistent spacing
+        }
+    }
+
+    return 0;
+}

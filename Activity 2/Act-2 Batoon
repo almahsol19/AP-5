@@ -1,0 +1,83 @@
+#include <iostream>
+using namespace std;
+
+void printJ(int offset) {
+    for (int row = 0; row < 5; row++) { //row
+        for (int space = 0; space < offset; space++)
+            cout << " ";
+        for (int col = 0; col < 5; col++) { //column
+            if ((col == 2 && row != 4) || (row == 4 && col < 2))
+                cout << "*";
+            else
+                cout << " ";
+        }
+        cout << endl;
+    }
+}
+
+void printE(int offset) {
+    for (int row = 0; row < 5; row++) {
+        for (int space = 0; space < offset; space++) 
+            cout << " ";
+        for (int col = 0; col < 5; col++) {
+            if (row == 0 || row == 2 || row == 4 || col == 0)
+                cout << "*";
+            else
+                cout << " ";
+        }
+        cout << endl;
+    }
+}
+
+void printN(int offset) {
+    for (int row = 0; row < 5; row++) {
+        for (int space = 0; space < offset; space++) 
+            cout << " ";
+        for (int col = 0; col < 5; col++) {
+            if (col == 0 || col == 4 || row == col)
+                cout << "*";
+            else
+                cout << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    string name;
+    cout << "Enter your name: ";
+    cin >> name;
+
+    for (char &c : name) {
+        c = toupper(c);
+    }
+    
+    char letters[] = {'J', 'E', 'N'};
+    int offset = 0; 
+
+    for (char letter : name) {
+        bool found = false;
+
+        for (char l : letters) {
+            if (letter == l) {
+                found = true;
+                if (letter == 'J')
+                    printJ(offset);
+                else if (letter == 'E')
+                    printE(offset);
+                else if (letter == 'N')
+                    printN(offset);
+                
+                offset += 5; 
+                break;
+            }
+        }
+
+        if (!found) {
+            cout << "[" << letter << "] Sorry, Please Try Again. " << endl;
+        }
+
+        cout << endl; 
+    }
+return 0;
+}

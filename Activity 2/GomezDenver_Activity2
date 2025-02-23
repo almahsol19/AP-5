@@ -1,0 +1,301 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+const char* getLetter(char c, int row) {
+    switch (toupper(c)) {
+        case 'T': {
+            const char* pattern[] = {
+                "*",
+                "  *  ",
+                "  *  ",
+                "  *  ",
+                "  *  "
+            };
+            return pattern[row];
+        }
+        case 'A': {
+            const char* pattern[] = {
+                "  *  ",
+                " * * ",
+                "*",
+                "*   *",
+                "*   *"
+            };
+            return pattern[row];
+        }
+        case 'B': {
+            const char* pattern[] = {
+                "** ",
+                "*   *",
+                "** ",
+                "*   *",
+                "** "
+            };
+            return pattern[row];
+        }
+        case 'C': {
+            const char* pattern[] = {
+                " **",
+                "*    ",
+                "*    ",
+                "*    ",
+                " **"
+            };
+            return pattern[row];
+        }
+        case 'D': {
+            const char* pattern[] = {
+                "** ",
+                "*   *",
+                "*   *",
+                "*   *",
+                "** "
+            };
+            return pattern[row];
+        }
+        case 'E': {
+            const char* pattern[] = {
+                "*",
+                "*    ",
+                "*",
+                "*    ",
+                "*"
+            };
+            return pattern[row];
+        }
+        case 'F': {
+            const char* pattern[] = {
+                "*",
+                "*    ",
+                "*",
+                "*    ",
+                "*    "
+            };
+            return pattern[row];
+        }
+        case 'G': {
+            const char* pattern[] = {
+                " **",
+                "*    ",
+                "*  **",
+                "*   *",
+                " **"
+            };
+            return pattern[row];
+        }
+        case 'H': {
+            const char* pattern[] = {
+                "*   *",
+                "*   *",
+                "*",
+                "*   *",
+                "*   *"
+            };
+            return pattern[row];
+        }
+        case 'I': {
+            const char* pattern[] = {
+                "*",
+                "  *  ",
+                "  *  ",
+                "  *  ",
+                "*"
+            };
+            return pattern[row];
+        }
+        case 'J': {
+            const char* pattern[] = {
+                "*",
+                "   * ",
+                "   * ",
+                "*  * ",
+                " **  "
+            };
+            return pattern[row];
+        }
+        case 'K': {
+            const char* pattern[] = {
+                "*   *",
+                "*  * ",
+                "*  ",
+                "*  * ",
+                "*   *"
+            };
+            return pattern[row];
+        }
+        case 'L': {
+            const char* pattern[] = {
+                "*    ",
+                "*    ",
+                "*    ",
+                "*    ",
+                "*"
+            };
+            return pattern[row];
+        }
+        case 'M': {
+            const char* pattern[] = {
+                "*   *",
+                "* *",
+                "* * *",
+                "*   *",
+                "*   *"
+            };
+            return pattern[row];
+        }
+        case 'N': {
+            const char* pattern[] = {
+                "*   *",
+                "**  *",
+                "* * *",
+                "*  **",
+                "*   *"
+            };
+            return pattern[row];
+        }
+        case 'O': {
+            const char* pattern[] = {
+                " * ",
+                "*   *",
+                "*   *",
+                "*   *",
+                " * "
+            };
+            return pattern[row];
+        }
+        case 'P': {
+            const char* pattern[] = {
+                "** ",
+                "*   *",
+                "** ",
+                "*    ",
+                "*    "
+            };
+            return pattern[row];
+        }
+        case 'Q': {
+            const char* pattern[] = {
+                " * ",
+                "*   *",
+                "*   *",
+                "*  * ",
+                " ** *"
+            };
+            return pattern[row];
+        }
+        case 'R': {
+            const char* pattern[] = {
+                "** ",
+                "*   *",
+                "** ",
+                "*  * ",
+                "*   *"
+            };
+            return pattern[row];
+        }
+        case 'S': {
+            const char* pattern[] = {
+                " **",
+                "*    ",
+                " * ",
+                "    *",
+                "** "
+            };
+            return pattern[row];
+        }
+        case 'U': {
+            const char* pattern[] = {
+                "*   *",
+                "*   *",
+                "*   *",
+                "*   *",
+                " * "
+            };
+            return pattern[row];
+        }
+        case 'V': {
+            const char* pattern[] = {
+                "*   *",
+                "*   *",
+                "*   *",
+                " * * ",
+                "  *  "
+            };
+            return pattern[row];
+        }
+        case 'W': {
+            const char* pattern[] = {
+                "*   *",
+                "*   *",
+                "* * *",
+                "* *",
+                "*   *"
+            };
+            return pattern[row];
+        }
+        case 'X': {
+            const char* pattern[] = {
+                "*   *",
+                " * * ",
+                "  *  ",
+                " * * ",
+                "*   *"
+            };
+            return pattern[row];
+        }
+        case 'Y': {
+            const char* pattern[] = {
+                "*   *",
+                " * * ",
+                "  *  ",
+                "  *  ",
+                "  *  "
+            };
+            return pattern[row];
+        }
+        case 'Z': {
+            const char* pattern[] = {
+                "*",
+                "   * ",
+                "  *  ",
+                " *   ",
+                "*"
+            };
+            return pattern[row];
+        }
+        default: {
+            const char* pattern[] = {
+                "     ",
+                "     ",
+                "     ",
+                "     ",
+                "     "
+            };
+            return pattern[row];
+        }
+    }
+}
+
+int main() {
+    string name;
+    
+    cout << "Input your name: ";
+    cin >> name;
+
+    for (char &c : name) {
+        c = toupper(c);
+    }
+
+    for (int i = 0; i < name.length(); ++i) {
+        for (int row = 0; row < 5; ++row) {
+            for (int space = 0; space < i * 5; ++space) {
+                cout << " ";
+            }
+            cout << getLetterPattern(name[i], row) << endl;
+        }
+    }
+
+    return 0;
+}

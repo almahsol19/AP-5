@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+const string LetterPatterns[26][5] = {
+    {"  *  ", " * * ", "*****", "*   *", "*   *"}, // A
+    {"**** ", "*   *", "**** ", "*   *", "**** "}, // B
+    {" ****", "*    ", "*    ", "*    ", " ****"}, // C
+    {"**** ", "*   *", "*   *", "*   *", "**** "}, // D
+    {"*****", "*    ", "**** ", "*    ", "*****"}, // E
+    {"*****", "*    ", "**** ", "*    ", "*    "}, // F
+    {" ****", "*    ", "*  **", "*   *", " ****"}, // G
+    {"*   *", "*   *", "*****", "*   *", "*   *"}, // H
+    {"*****", "  *  ", "  *  ", "  *  ", "*****"}, // I
+    {"  ****", "    * ", "    * ", "*   * ", " ***  "}, // J
+    {"*   *", "*  * ", "**   ", "*  * ", "*   *"}, // K
+    {"*    ", "*    ", "*    ", "*    ", "*****"}, // L
+    {"*   *", "** **", "* * *", "*   *", "*   *"}, // M
+    {"*   *", "**  *", "* * *", "*  **", "*   *"}, // N
+    {" *** ", "*   *", "*   *", "*   *", " *** "}, // O
+    {"**** ", "*   *", "**** ", "*    ", "*    "}, // P
+    {" *** ", "*   *", "* * *", "*  **", " ****"}, // Q
+    {"**** ", "*   *", "**** ", "*  * ", "*   *"}, // R
+    {" ****", "*    ", " *** ", "    *", "**** "}, // S
+    {"*****", "  *  ", "  *  ", "  *  ", "  *  "}, // T
+    {"*   *", "*   *", "*   *", "*   *", " *** "}, // U
+    {"*   *", "*   *", "*   *", " * * ", "  *  "}, // V
+    {"*   *", "*   *", "* * *", "** **", "*   *"}, // W
+    {"*   *", " * * ", "  *  ", " * * ", "*   *"}, // X
+    {"*   *", " * * ", "  *  ", "  *  ", "  *  "}, // Y
+    {"*****", "   * ", "  *  ", " *   ", "*****"}  // Z
+};
+
+void PrintSlantedLetter(char c, int spaceOffset) {
+    if (c < 'A' || c > 'Z') return; // Ignore non-letter characters
+
+    int index = c - 'A'; // Convert letter to array index
+    for (int i = 0; i < 5; i++) { // Each letter has 5 lines
+        cout << string(spaceOffset, ' ') << LetterPatterns[index][i] << endl;
+    }
+}
+
+int main() {
+    cout << "Enter a name: ";
+    string name;
+    getline(cin, name);
+
+    int spaceOffset = 0;
+    for (char c : name) {
+        c = toupper(c);
+        PrintSlantedLetter(c, spaceOffset);
+        spaceOffset += 5; // Move next letter to the right
+    }
+
+    return 0;
+}

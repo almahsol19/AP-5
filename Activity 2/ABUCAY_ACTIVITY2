@@ -1,0 +1,82 @@
+#include <iostream>
+#include <string>   
+
+using namespace std;
+void printName(char letter, int spaces) {
+    const string asterisk[26][5] = {
+        {"  *  ", " * * ", "*****", "*   *", "*   *"}, //*A
+        {"**** ", "*   *", A"**** ", "*   *", "**** "}, //*B
+        {" ****", "*    ", "*    ", "*    ", " ****"}, //*C
+        {"**** ", "*   *", "*   *", "*   *", "**** "}, //*D
+        {"*****", "*    ", "***  ", "*    ", "*****"}, //*E
+        {"*****", "*    ", "***  ", "*    ", "*    "}, //*F
+        {" ****", "*    ", "*  **", "*   *", " ****"}, //*G
+        {"*   *", "*   *", "*****", "*   *", "*   *"}, //*H
+        {" *** ", "  *  ", "  *  ", "  *  ", " *** "}, //*I
+        {"    *", "    *", "    *", "*   *", " *** "}, //*J
+        {"*   *", "*  * ", "***  ", "*  * ", "*   *"}, //*K
+        {"*    ", "*    ", "*    ", "*    ", "*****"}, //*L
+        {"*   *", "** **", "* * *", "*   *", "*   *"}, //*M
+        {"*   *", "**  *", "* * *", "*  **", "*   *"}, //*N
+        {" *** ", "*   *", "*   *", "*   *", " *** "}, //*O
+        {"**** ", "*   *", "**** ", "*    ", "*    "}, //*P
+        {" *** ", "*   *", "* * *", "*  * ", " ** *"}, //*Q
+        {"**** ", "*   *", "**** ", "*  * ", "*   *"}, //*R
+        {" ****", "*    ", " *** ", "    *", "**** "}, //*S
+        {"*****", "  *  ", "  *  ", "  *  ", "  *  "}, //*T
+        {"*   *", "*   *", "*   *", "*   *", " *** "}, //*U
+        {"*   *", "*   *", "*   *", " * * ", "  *  "}, //*V
+        {"*   *", "*   *", "* * *", "** **", "*   *"}, //*W
+        {"*   *", " * * ", "  *  ", " * * ", "*   *"}, //*X
+        {"*   *", " * * ", "  *  ", "  *  ", "  *  "}, //*Y
+        {"*****", "   * ", "  *  ", " *   ", "*****"}  //*Z
+    };
+
+    char upperLetter = toupper(letter);
+    
+    if (upperLetter < 'A' || upperLetter > 'Z') {
+        std::cout << string(spaces, ' ') << "Invalid letter, please enter a valid alphabetical letter." << endl;
+        return;
+    }
+
+    int letters = upperLetter - 'A';
+
+       for (int i = 0; i < 5; i++) {
+        std::cout << string(spaces, ' ') << asterisk[letters][i] << endl;
+    }
+}
+
+bool isValidName(const string &myName) {
+    for (char c : myName) {
+        if (!isalpha(c) && c != ' ') { 
+            return false;
+        }
+    }
+    return true;
+}
+
+
+int main() {
+    string myName;
+
+    while (true) {
+        std::cout << "Enter your name: ";
+        getline(cin, myName);
+        
+        if (isValidName(myName)) {
+            break; 
+        } else {
+            std::cout << "Invalid input! Please enter only letters.\n";
+        }
+    }
+
+    int spaces = 0;
+    for (char c : myName) {
+        if (c != ' ') {  
+            printName(c, spaces);
+            spaces += 6;  
+        }
+    }
+
+    return 0;
+}

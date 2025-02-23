@@ -1,0 +1,545 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void printGPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (j == 1 || i == 1 || i == n || (i > n / 2 && j == n) || (i == (n / 2 + 1) && j > n / 2)) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printAPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (j == 1 || j == n || i == 1 || i == (n / 2 + 1)) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printBPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (j == 1 || (i == 1 && j != n) || (i == n && j != n) || (i == n / 2 + 1 && j != n) || (j == n && i != 1 && i != n && i != n / 2 + 1)) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printDPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (j == 1 || (i == 1 && j != n) || (i == n && j != n) || (j == n && i != 1 && i != n)) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printEPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (j == 1 || i == 1 || i == n || i == n / 2 + 1) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printNPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (j == 1 || j == n || i == j) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printVPattern(int n, int offset) {
+    int x = 1;
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <2*n; j++) {
+            if (j == n || j==2*n-x) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+            
+        }
+   x++;
+        cout << endl;
+    }
+}
+
+void printRPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (j == 1 || (i == 1 && j != n) || (i == n / 2 + 1 && j != n) || (j == n && i <= n / 2 + 1) || (i > n / 2 + 1 && i - j == n / 2)) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printIPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (i == 1 || i == n || j == n / 2 + 1) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printLPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (j == 1 || i == n) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printTPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (i == 1 || j == n / 2 + 1) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printOPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (j == 1 || j == n || i == 1 || i == n) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printSPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (i == 1 || i == n || (i <= n / 2 && j == 1) || (i > n / 2 && j == n) || (i == n / 2 + 1)) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printWPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (j == 1 || j == n || (i == j && i > n / 2) || (i + j == n + 1 && i > n / 2)) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printXPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (i == j || i + j == n + 1) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printYPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if ((i == j && i <= n / 2) || (i + j == n + 1 && i <= n / 2) || (j == n / 2 + 1 && i > n / 2)) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printZPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (i == 1 || i == n || i + j == n + 1) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printCPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (i == 1 || i == n || j == 1) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printFPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (j == 1 || i == 1 || i == n / 2 + 1) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printHPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (j == 1 || j == n || i == n / 2 + 1) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printJPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (i == 1 || (i == n && j <= n / 2+1) || j==n/2+1 ) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printKPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (j == 1 || i + j == n / 2 + 2 || i - j == n / 2 - 1) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printMPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (j == 1 || j == n || (i == j && i <= n / 2) || (i + j == n + 1 && i <= n / 2)) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printPPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (j == 1 || i == 1 || (i == n / 2 + 1) || (j == n && i <= n / 2)) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printQPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if (j == 1 || j == n || i == 1 || i == n || (i == j && i >= n / 2)) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printUPattern(int n, int offset) {
+    for (int i = 1; i <= n; i++) {
+        for (int k = 0; k < offset; k++) cout << " ";
+        for (int j = 1; j <= n; j++) {
+            if ((j == 1 || j == n) && i != n || (i == n && j > 1 && j < n)) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    string choices;
+    int n = 10;
+    
+    cout << "Enter your name: ";
+    cin >> choices;
+
+    int offset = 0;
+    for (char choice : choices) {
+        switch (choice) {
+            case 'G':
+            case 'g':
+                printGPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'A':
+            case 'a':
+                printAPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'B':
+            case 'b':
+                printBPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'D':
+            case 'd':
+                printDPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'E':
+            case 'e':
+                printEPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'N':
+            case 'n':
+                printNPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'V':
+            case 'v':
+                printVPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'R':
+            case 'r':
+                printRPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'I':
+            case 'i':
+                printIPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'L':
+            case 'l':
+                printLPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'T':
+            case 't':
+                printTPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'O':
+            case 'o':
+                printOPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'S':
+            case 's':
+                printSPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'W':
+            case 'w':
+                printWPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'X':
+            case 'x':
+                printXPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'Y':
+            case 'y':
+                printYPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'Z':
+            case 'z':
+                printZPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'C':
+            case 'c':
+                printCPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'F':
+            case 'f':
+                printFPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'H':
+            case 'h':
+                printHPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'J':
+            case 'j':
+                printJPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'K':
+            case 'k':
+                printKPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'M':
+            case 'm':
+                printMPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'P':
+            case 'p':
+                printPPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'Q':
+            case 'q':
+                printQPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            case 'U':
+            case 'u':
+                printUPattern(n, offset);
+                cout << endl;
+                offset += n;
+                break;
+            default:
+                cout << "Invalid choice: " << choice << endl;
+        }
+    }
+
+    return 0;
+}

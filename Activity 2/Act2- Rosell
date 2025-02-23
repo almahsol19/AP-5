@@ -1,0 +1,54 @@
+#include <iostream>
+#include <cctype>
+#include <string>
+using namespace std;
+
+
+void printLetter(char letter, int offset) {
+    string space(offset, ' ');
+    switch (toupper(letter)) {
+        case 'A': cout << space << "  *  \n" << space << " * * \n" << space << "*****\n" << space << "*   *\n" << space << "*   *\n"; break;
+        case 'B': cout << space << "**** \n" << space << "*   *\n" << space << "**** \n" << space << "*   *\n" << space << "**** \n"; break;
+        case 'C': cout << space << " ****\n" << space << "*    \n" << space << "*    \n" << space << "*    \n" << space << " ****\n"; break;
+        case 'D': cout << space << "**** \n" << space << "*   *\n" << space << "*   *\n" << space << "*   *\n" << space << "**** \n"; break;
+        case 'E': cout << space << "*****\n" << space << "*    \n" << space << "*****\n" << space << "*    \n" << space << "*****\n"; break;
+        case 'F': cout << space << "*****\n" << space << "*    \n" << space << "*****\n" << space << "*    \n" << space << "*    \n"; break;
+        case 'G': cout << space << " ****\n" << space << "*    \n" << space << "*  **\n" << space << "*   *\n" << space << " ****\n"; break;
+        case 'H': cout << space << "*   *\n" << space << "*   *\n" << space << "*****\n" << space << "*   *\n" << space << "*   *\n"; break;
+        case 'I': cout << space << "*****\n" << space << "  *  \n" << space << "  *  \n" << space << "  *  \n" << space << "*****\n"; break;
+        case 'J': cout << space << "*****\n" << space << "   * \n" << space << "   * \n" << space << "*  * \n" << space << " **  \n"; break;
+        case 'K': cout << space << "*   *\n" << space << "*  * \n" << space << "**   \n" << space << "*  * \n" << space << "*   *\n"; break;
+        case 'L': cout << space << "*    \n" << space << "*    \n" << space << "*    \n" << space << "*    \n" << space << "*****\n"; break;
+        case 'M': cout << space << "*   *\n" << space << "** **\n" << space << "* * *\n" << space << "*   *\n" << space << "*   *\n"; break;
+        case 'N': cout << space << "*   *\n" << space << "**  *\n" << space << "* * *\n" << space << "*  **\n" << space << "*   *\n"; break;
+        case 'O': cout << space << " *** \n" << space << "*   *\n" << space << "*   *\n" << space << "*   *\n" << space << " *** \n"; break;
+        case 'P': cout << space << "**** \n" << space << "*   *\n" << space << "**** \n" << space << "*    \n" << space << "*    \n"; break;
+        case 'Q': cout << space << " *** \n" << space << "*   *\n" << space << "* * *\n" << space << "*  **\n" << space << " ****\n"; break;
+        case 'R': cout << space << "**** \n" << space << "*   *\n" << space << "**** \n" << space << "*  * \n" << space << "*   *\n"; break;
+        case 'S': cout << space << " ****\n" << space << "*    \n" << space << " *** \n" << space << "    *\n" << space << "**** \n"; break;
+        case 'T': cout << space << "*****\n" << space << "  *  \n" << space << "  *  \n" << space << "  *  \n" << space << "  *  \n"; break;
+        case 'U': cout << space << "*   *\n" << space << "*   *\n" << space << "*   *\n" << space << "*   *\n" << space << " *** \n"; break;
+        case 'V': cout << space << "*   *\n" << space << "*   *\n" << space << "*   *\n" << space << " * * \n" << space << "  *  \n"; break;
+        case 'W': cout << space << "*   *\n" << space << "*   *\n" << space << "* * *\n" << space << "** **\n" << space << "*   *\n"; break;
+        case 'X': cout << space << "*   *\n" << space << " * * \n" << space << "  *  \n" << space << " * * \n" << space << "*   *\n"; break;
+        case 'Y': cout << space << "*   *\n" << space << " * * \n" << space << "  *  \n" << space << "  *  \n" << space << "  *  \n"; break;
+        case 'Z': cout << space << "*****\n" << space << "   * \n" << space << "  *  \n" << space << " *   \n" << space << "*****\n"; break;
+        default: cout << space << letter << " is not supported.\n"; break;
+    }
+}
+
+int main() {
+    string input;
+    
+    cout << "Enter a word: ";
+    cin >> input;
+    
+   
+    
+    for (int i = 0; i < input.length(); i++) {
+        printLetter(input[i], i * 
+        4);
+        cout << endl;
+    }
+    return 0;
+}

@@ -1,0 +1,82 @@
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+#include <cctype>
+
+using namespace std;
+
+unordered_map<char, vector<string>> letterPatterns = {
+    {'A', {"  *  ", " * * ", "* * *", "*   *", "*   *"}},
+    {'B', {"* * * ", "*    *", "* * * ", "*    *", "* * * "}},
+    {'C', {" * * *", "*    ", "*    ", "*    ", " * * *"}},
+    {'D', {"* * *  ", "*    * ", "*     *", "*    * ", "* * *  "}},
+    {'E', {"* * *", "*    ", "* * *", "*    ", "* * *"}},
+    {'F', {"* * *", "*    ", "* * * ", "*    ", "*    "}},
+    {'G', {" * * *", "*    ", "*  * *", "*    *", " * * *"}},
+    {'H', {"*   *", "*   *", "* * *", "*   *", "*   *"}},
+    {'I', {"* * *", "  *  ", "  *  ", "  *  ", "* * *"}},
+    {'J', {"   * *", "     *", "     *", "*    *", " * *  "}},
+    {'K', {"*    *", "*   * ", "* *   ", "*   * ", "*    *"}},
+    {'L', {"*    ", "*    ", "*    ", "*    ", "* * *"}},
+    {'M', {"*     *", "* * * *", "*  *  *", "*     *", "*     *"}},
+    {'N', {"*     *", "* *   *", "*  *  *", "*   * *", "*     *"}},
+    {'O', {"  * * * ", " *     *","*       *", " *     *", "  * * *"}},
+    {'P', {"* * * ", "*    *", "* * * ", "*    ", "*    "}},
+    {'Q', {"  * * * ", " *     *","*    *  *", " *     * ", "  * * *  *"}},
+    {'R', {"* * * ", "*    *", "* * * ", "*   * ", "*    *"}},
+    {'S', {" * * *", "*    ", " * * * ", "      *", " * * * "}},
+    {'T', {"* * *", "  *  ", "  *  ", "  *  ", "  *  "}},
+    {'U', {"*     *", "*     *", "*     *", "*     *", " * * * "}},
+    {'V', {"*    *", "*    *", "*    *", " *  * ", "  *  "}},
+    {'W', {"*     *", "*     *", "*  *  *", "* * * *", "*     *"}},
+    {'X', {"*   *", " * * ", "  *  ", " * * ", "*   *"}},
+    {'Y', {"*   *", " * * ", "  *  ", "  *  ", "  *  "}},
+    {'Z', {"* * *", "   * ", "  *  ", " *   ", "* * *"}}
+};
+
+void displayLetter(char a, int spaces) {
+    if (letterPatterns.find(a) == letterPatterns.end()) return;
+    for (const string &line : letterPatterns[a]) {
+        cout << string(spaces, ' ') << line << endl;
+    }
+}
+
+void displayWordDiagonally(const string &word) {
+    int spacing = 7;
+    string upperWord = word;
+    for (char &a : upperWord) a = toupper(a);
+    
+    int spaces = 0;
+    for (char a : upperWord) {
+        if (a == ' ') {
+            spaces += spacing; 
+            continue;
+        }
+        displayLetter(a, spaces);
+        spaces += spacing;
+    }
+}
+
+bool isValidInput(const string &word) {
+    for (char a : word) {
+        if (!isalpha(a) && a != ' ') {
+            return false; 
+        }
+    }
+    return true;
+}
+
+int main() {
+    string word;
+    cout << "Enter a name: ";
+    getline(cin, word);
+    
+    if (!isValidInput(word)) {
+        cout << "Invalid input! Only letters and spaces are allowed.\n";
+        return 1;
+    }
+
+    cout << endl;
+    displayWordDiagonally(word);
+    return 0;
+}

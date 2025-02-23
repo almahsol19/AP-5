@@ -1,0 +1,86 @@
+using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
+class Program
+{
+    static void Main()
+    {
+        while (true) // Infinite loop until user enters "0"
+        {
+
+            Console.Write("Enter a word/name (or type 0 to exit): ");
+            string word = Console.ReadLine().ToUpper(); // Convert input to uppercase
+            Console.WriteLine(); // Add space
+
+            if (word == "0") // Exit condition
+            {
+                Console.WriteLine("Exiting program...");
+                Console.WriteLine(); // Add space
+                break;
+            }
+
+            // Validate input: Check if it contains only letters and spaces
+            if (!Regex.IsMatch(word, @"^[A-Z ]+$"))
+            {
+                Console.WriteLine("Invalid input! Please enter a word/name without special characters or numbers");
+                Console.WriteLine(); // Add space
+                continue; // Restart loop
+            }
+
+            int spaceOffset = 0; // Initial space count for slanting
+
+            foreach (char letter in word)
+            {
+                if (LetterPatterns.ContainsKey(letter)) // Check if letter exists in dictionary
+                {
+                    PrintSlantedLetter(LetterPatterns[letter], spaceOffset);
+                    spaceOffset += 6; // Increase spaces for slanting effect
+                }
+            }
+
+            Console.WriteLine(); // Add space after printing the word
+        }
+    }
+
+    static void PrintSlantedLetter(string[] pattern, int spaceOffset)
+    {
+        foreach (string line in pattern)
+        {
+            Console.WriteLine(new string(' ', spaceOffset) + line);
+        }
+        Console.WriteLine(); // Add space after each letter
+    }
+
+    static Dictionary<char, string[]> LetterPatterns = new Dictionary<char, string[]>
+    {
+        { 'A', new string[] { "  *  ", " * * ", "*****", "*   *", "*   *" } },
+        { 'B', new string[] { "**** ", "*   *", "**** ", "*   *", "**** " } },
+        { 'C', new string[] { " ****", "*    ", "*    ", "*    ", " ****" } },
+        { 'D', new string[] { "**** ", "*   *", "*   *", "*   *", "**** " } },
+        { 'E', new string[] { "*****", "*    ", "**** ", "*    ", "*****" } },
+        { 'F', new string[] { "*****", "*    ", "**** ", "*    ", "*    " } },
+        { 'G', new string[] { " ****", "*    ", "*  **", "*   *", " ****" } },
+        { 'H', new string[] { "*   *", "*   *", "*****", "*   *", "*   *" } },
+        { 'I', new string[] { "*****", "  *  ", "  *  ", "  *  ", "*****" } },
+        { 'J', new string[] { " *****", "    * ", "    * ", " *  * ", "  **  " } },
+        { 'K', new string[] { "*   *", "*  * ", "**   ", "*  * ", "*   *" } },
+        { 'L', new string[] { "*    ", "*    ", "*    ", "*    ", "*****" } },
+        { 'M', new string[] { "*   *", "** **", "* * *", "*   *", "*   *" } },
+        { 'N', new string[] { "*   *", "**  *", "* * *", "*  **", "*   *" } },
+        { 'O', new string[] { "*****", "*   *", "*   *", "*   *", "*****" } },
+        { 'P', new string[] { "*****", "*   *", "*****", "*    ", "*    " } },
+        { 'Q', new string[] { "*****", "*   *", "* * *", "*  **", "*****" } },
+        { 'R', new string[] { "*****", "*   *", "*****", "*  * ", "*   *" } },
+        { 'S', new string[] { "*****", "*    ", "*****", "    *", "*****" } },
+        { 'T', new string[] { "*****", "  *  ", "  *  ", "  *  ", "  *  " } },
+        { 'U', new string[] { "*   *", "*   *", "*   *", "*   *", "*****" } },
+        { 'V', new string[] { "*   *", "*   *", "*   *", " * * ", "  *  " } },
+        { 'W', new string[] { "*   *", "*   *", "* * *", "** **", "*   *" } },
+        { 'X', new string[] { "*   *", " * * ", "  *  ", " * * ", "*   *" } },
+        { 'Y', new string[] { "*   *", " * * ", "  *  ", "  *  ", "  *  " } },
+        { 'Z', new string[] { "*****", "   * ", "  *  ", " *   ", "*****" } },
+        { ' ', new string[] { "     ", "     ", "     ", "     ", "     " } } // Space
+    };
+}
+

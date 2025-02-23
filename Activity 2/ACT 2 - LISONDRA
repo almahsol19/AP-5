@@ -1,0 +1,91 @@
+#include <iostream>
+#include <cctype> // For toupper function
+#include <string> // For getline
+
+using namespace std;
+
+void displayWordDiagonally(const string &word) {
+    int gridSize = 6 ;
+
+    //letters and numbers using asterisks
+    const char* characters[][6] = {
+        { " *** ", "*   *", "*****", "*   *", "*   *", "     " }, // A
+        { "**** ", "*   *", "**** ", "*   *", "**** ", "     " }, // B
+        { " ****", "*    ", "*    ", "*    ", " ****", "     " }, // C
+        { "**** ", "*   *", "*   *", "*   *", "**** ", "     " }, // D
+        { "*****", "*    ", "*****", "*    ", "*****", "     " }, // E
+        { "*****", "*    ", "**** ", "*    ", "*    ", "     " }, // F
+        { " ****", "*    ", "*  **", "*   *", " ****", "     " }, // G
+        { "*   *", "*   *", "*****", "*   *", "*   *", "     " }, // H
+        { " *** ", "  *  ", "  *  ", "  *  ", " *** ", "     " }, // I
+        { "    *", "    *", "    *", "*   *", " *** ", "     " }, // J
+        { "*   *", "*  * ", "**   ", "*  * ", "*   *", "     " }, // K
+        { "*    ", "*    ", "*    ", "*    ", "*****", "     " }, // L
+        { "*   *", "** **", "* * *", "*   *", "*   *", "     " }, // M
+        { "*   *", "**  *", "* * *", "*  **", "*   *", "     " }, // N
+        { " *** ", "*   *", "*   *", "*   *", " *** ", "     " }, // O
+        { "**** ", "*   *", "**** ", "*    ", "*    ", "     " }, // P
+        { " *** ", "*   *", "*   *", "*  **", " ****", "     " }, // Q
+        { "**** ", "*   *", "**** ", "*  * ", "*   *", "     " }, // R
+        { " ****", "*    ", " *** ", "    *", "**** ", "     " }, // S
+        { "*****", "  *  ", "  *  ", "  *  ", "  *  ", "     " }, // T
+        { "*   *", "*   *", "*   *", "*   *", " *** ", "     " }, // U
+        { "*   *", "*   *", "*   *", " * * ", "  *  ", "     " }, // V
+        { "*   *", "*   *", "* * *", "** **", "*   *", "     " }, // W
+        { "*   *", " * * ", "  *  ", " * * ", "*   *", "     " }, // X
+        { "*   *", " * * ", "  *  ", "  *  ", "  *  ", "     " }, // Y
+        { "*****", "   * ", "  *  ", " *   ", "*****", "     " }, // Z
+        
+        // Digits 0-9
+        { " *** ", "*   *", "*   *", "*   *", " *** ", "     " }, // 0
+        { "  *  ", " **  ", "  *  ", "  *  ", " *** ", "     " }, // 1
+        { " *** ", "*   *", "   * ", "  *  ", "*****", "     " }, // 2
+        { " *** ", "*   *", "   **", "*   *", " *** ", "     " }, // 3
+        { "   * ", "  ** ", " * * ", "*****", "   * ", "     " }, // 4
+        { "*****", "*    ", "**** ", "    *", "**** ", "     " }, // 5
+        { " *** ", "*    ", "**** ", "*   *", " *** ", "     " }, // 6
+        { "*****", "   * ", "  *  ", " *   ", " *   ", "     " }, // 7
+        { " *** ", "*   *", " *** ", "*   *", " *** ", "     " }, // 8
+        { " *** ", "*   *", " ****", "    *", " *** ", "     " }  // 9
+    };
+
+    // Convert input to uppercase (only affects letters)
+    string formattedWord = word;
+    for (char &ch : formattedWord) {
+        ch = toupper(ch);
+    }
+
+    // Display the input diagonally
+    int spaces = 0;
+    for (char ch : formattedWord) {
+        if (ch == ' ') {
+            cout << endl; // Space creates an empty line
+            spaces++; // Increase indentation for next character
+        } 
+        else if (ch >= 'A' && ch <= 'Z') {
+            int index = ch - 'A';
+            for (int row = 0; row < gridSize; row++) {
+                for (int i = 0; i < spaces; i++) cout << "   ";
+                cout << characters[index][row] << endl;
+            }
+            spaces++;
+        } 
+        else if (ch >= '0' && ch <= '9') {
+            int index = (ch - '0') + 26; // Offset for numbers after letters
+            for (int row = 0; row < gridSize; row++) {
+                for (int i = 0; i < spaces; i++) cout << "   ";
+                cout << characters[index][row] << endl;
+            }
+            spaces++;
+        }
+    }
+}
+
+int main() {
+    string word;
+    cout << "Enter a word or a number:";
+    getline(cin, word); // Accept full input, including spaces
+    cout << endl; // Add spacing before output
+    displayWordDiagonally(word);
+    return 0;
+}

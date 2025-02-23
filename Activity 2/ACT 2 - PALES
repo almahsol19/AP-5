@@ -1,0 +1,201 @@
+#include <iostream>
+
+using namespace std;
+
+void displayLetter(char let, int spaces) {
+    string letterValue[5];
+
+    if (let == 'A' || let == 'a') { 
+        letterValue[0] = "  *  ";
+        letterValue[1] = " * * ";
+        letterValue[2] = "*****";
+        letterValue[3] = "*   *";
+        letterValue[4] = "*   *";
+    } else if (let == 'B' || let == 'b') { 
+        letterValue[0] = "**** ";
+        letterValue[1] = "*   *";
+        letterValue[2] = "**** ";
+        letterValue[3] = "*   *";
+        letterValue[4] = "**** ";
+    } else if (let == 'C' || let == 'c') { 
+        letterValue[0] = " ****";
+        letterValue[1] = "*    ";
+        letterValue[2] = "*    ";
+        letterValue[3] = "*    ";
+        letterValue[4] = " ****";
+    } else if (let == 'D' || let == 'd') { 
+        letterValue[0] = "**** ";
+        letterValue[1] = "*   *";
+        letterValue[2] = "*   *";
+        letterValue[3] = "*   *";
+        letterValue[4] = "**** ";
+    } else if (let == 'E' || let == 'e') { 
+        letterValue[0] = "*****";
+        letterValue[1] = "*    ";
+        letterValue[2] = "**** ";
+        letterValue[3] = "*    ";
+        letterValue[4] = "*****";
+    } else if (let == 'F' || let == 'f') { 
+        letterValue[0] = "*****";
+        letterValue[1] = "*    ";
+        letterValue[2] = "**** ";
+        letterValue[3] = "*    ";
+        letterValue[4] = "*    ";
+    } else if (let == 'G' || let == 'g') { 
+        letterValue[0] = " ****";
+        letterValue[1] = "*    ";
+        letterValue[2] = "*  **";
+        letterValue[3] = "*   *";
+        letterValue[4] = " ****";
+    } else if (let == 'H' || let == 'h') { 
+        letterValue[0] = "*   *";
+        letterValue[1] = "*   *";
+        letterValue[2] = "*****";
+        letterValue[3] = "*   *";
+        letterValue[4] = "*   *";
+    } else if (let == 'I' || let == 'i') { 
+        letterValue[0] = " *** ";
+        letterValue[1] = "  *  ";
+        letterValue[2] = "  *  ";
+        letterValue[3] = "  *  ";
+        letterValue[4] = " *** ";
+    } else if (let == 'J' || let == 'j') { 
+        letterValue[0] = "  ***";
+        letterValue[1] = "   * ";
+        letterValue[2] = "   * ";
+        letterValue[3] = "*  * ";
+        letterValue[4] = " **  ";
+    } else if (let == 'K' || let == 'k') { 
+        letterValue[0] = "*   *";
+        letterValue[1] = "*  * ";
+        letterValue[2] = "**   ";
+        letterValue[3] = "*  * ";
+        letterValue[4] = "*   *";
+    } else if (let == 'L' || let == 'l') { 
+        letterValue[0] = "*    ";
+        letterValue[1] = "*    ";
+        letterValue[2] = "*    ";
+        letterValue[3] = "*    ";
+        letterValue[4] = "*****";
+    } else if (let == 'M' || let == 'm') { 
+        letterValue[0] = "*   *";
+        letterValue[1] = "** **";
+        letterValue[2] = "* * *";
+        letterValue[3] = "*   *";
+        letterValue[4] = "*   *";
+    } else if (let == 'N' || let == 'n') { 
+        letterValue[0] = "*   *";
+        letterValue[1] = "**  *";
+        letterValue[2] = "* * *";
+        letterValue[3] = "*  **";
+        letterValue[4] = "*   *";
+    } else if (let == 'O' || let == 'o') { 
+        letterValue[0] = " *** ";
+        letterValue[1] = "*   *";
+        letterValue[2] = "*   *";
+        letterValue[3] = "*   *";
+        letterValue[4] = " *** ";
+    } else if (let == 'P' || let == 'p') { 
+        letterValue[0] = "**** ";
+        letterValue[1] = "*   *";
+        letterValue[2] = "**** ";
+        letterValue[3] = "*    ";
+        letterValue[4] = "*    ";
+    } else if (let == 'Q' || let == 'q') { 
+        letterValue[0] = " *** ";
+        letterValue[1] = "*   *";
+        letterValue[2] = "* * *";
+        letterValue[3] = "*  **";
+        letterValue[4] = " ****";
+    } else if (let == 'R' || let == 'r') { 
+        letterValue[0] = "**** ";
+        letterValue[1] = "*   *";
+        letterValue[2] = "**** ";
+        letterValue[3] = "*  * ";
+        letterValue[4] = "*   *";
+    } else if (let == 'S' || let == 's') { 
+        letterValue[0] = " ****";
+        letterValue[1] = "*    ";
+        letterValue[2] = " *** ";
+        letterValue[3] = "    *";
+        letterValue[4] = "**** ";
+    } else if (let == 'T' || let == 't') { 
+        letterValue[0] = "*****";
+        letterValue[1] = "  *  ";
+        letterValue[2] = "  *  ";
+        letterValue[3] = "  *  ";
+        letterValue[4] = "  *  ";
+    } else if (let == 'U' || let == 'u') { 
+        letterValue[0] = "*   *";
+        letterValue[1] = "*   *";
+        letterValue[2] = "*   *";
+        letterValue[3] = "*   *";
+        letterValue[4] = " *** ";
+    } else if (let == 'V' || let == 'v') { 
+        letterValue[0] = "*   *";
+        letterValue[1] = "*   *";
+        letterValue[2] = "*   *";
+        letterValue[3] = " * * ";
+        letterValue[4] = "  *  ";
+    } else if (let == 'W' || let == 'w') { 
+        letterValue[0] = "*   *";
+        letterValue[1] = "*   *";
+        letterValue[2] = "* * *";
+        letterValue[3] = "** **";
+        letterValue[4] = "*   *";
+    } else if (let == 'X' || let == 'x') { 
+        letterValue[0] = "*   *";
+        letterValue[1] = " * * ";
+        letterValue[2] = "  *  ";
+        letterValue[3] = " * * ";
+        letterValue[4] = "*   *";
+    } else if (let == 'Y' || let == 'y') { 
+        letterValue[0] = "*   *";
+        letterValue[1] = " * * ";
+        letterValue[2] = "  *  ";
+        letterValue[3] = "  *  ";
+        letterValue[4] = "  *  ";
+    } else if (let == 'Z' || let == 'z') { 
+        letterValue[0] = "*****";
+        letterValue[1] = "   * ";
+        letterValue[2] = "  *  ";
+        letterValue[3] = " *   ";
+        letterValue[4] = "*****";
+    }
+
+    for (int i = 0; i < 5; i++) {
+        cout << string(spaces, ' ') << letterValue[i] << endl;
+    }
+}
+
+void displayWordDiagonally(const string &word) {
+    int verticalSpacing = 10;
+    int spaces = 0;
+
+    for (char let : word) {
+        if (let == ' ') {
+            spaces += 5;
+            continue;
+        }
+        displayLetter(let, spaces);
+        spaces += verticalSpacing;
+    }
+}
+
+int main() {
+    string word;
+    cout << "Enter a word: ";
+    cin >> word;
+
+    
+    for (char c : word) {
+        if (isdigit(c)) {
+            cout << "Invalid input: Numbers are not allowed." << endl;
+            return 1; 
+        }
+    }
+
+    cout << endl;
+    displayWordDiagonally(word);
+    return 0;
+}

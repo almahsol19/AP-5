@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    // Dictionary of letter patterns
+    static Dictionary<char, string[]> LetterPatterns = new Dictionary<char, string[]>
+    {
+        {'A', new string[] { "  *  ", " * * ", "*****", "*   *", "*   *" }},
+        {'B', new string[] { "**** ", "*   *", "**** ", "*   *", "**** " }},
+        {'C', new string[] { " ****", "*    ", "*    ", "*    ", " ****" }},
+        {'D', new string[] { "**** ", "*   *", "*   *", "*   *", "**** " }},
+        {'E', new string[] { "*****", "*    ", "**** ", "*    ", "*****" }},
+        {'F', new string[] { "*****", "*    ", "**** ", "*    ", "*    " }},
+        {'G', new string[] { " ****", "*    ", "*  **", "*   *", " ****" }},
+        {'H', new string[] { "*   *", "*   *", "*****", "*   *", "*   *" }},
+        {'I', new string[] { "*****", "  *  ", "  *  ", "  *  ", "*****" }},
+        {'J', new string[] { " *****", "    * ", "    * ", " *  * ", "  **  " }},
+        {'K', new string[] { "*   *", "*  * ", "**   ", "*  * ", "*   *" }},
+        {'L', new string[] { "*    ", "*    ", "*    ", "*    ", "*****" }},
+        {'M', new string[] { "*   *", "** **", "* * *", "*   *", "*   *" }},
+        {'N', new string[] { "*   *", "**  *", "* * *", "*  **", "*   *" }},
+        {'O', new string[] { "*****", "*   *", "*   *", "*   *", "*****" }},
+        {'P', new string[] { "*****", "*   *", "*****", "*    ", "*    " }},
+        {'Q', new string[] { "*****", "*   *", "* * *", "*  **", "*****" }},
+        {'R', new string[] { "*****", "*   *", "*****", "*  * ", "*   *" }},
+        {'S', new string[] { "*****", "*    ", "*****", "    *", "*****" }},
+        {'T', new string[] { "*****", "  *  ", "  *  ", "  *  ", "  *  " }},
+        {'U', new string[] { "*   *", "*   *", "*   *", "*   *", "*****" }},
+        {'V', new string[] { "*   *", "*   *", "*   *", " * * ", "  *  " }},
+        {'W', new string[] { "*   *", "*   *", "* * *", "** **", "*   *" }},
+        {'X', new string[] { "*   *", " * * ", "  *  ", " * * ", "*   *" }},
+        {'Y', new string[] { "*   *", " * * ", "  *  ", "  *  ", "  *  " }},
+        {'Z', new string[] { "*****", "   * ", "  *  ", " *   ", "*****" }},
+        {' ', new string[] { "     ", "     ", "     ", "     ", "     " }} // Space
+    };
+
+    // Function to print text in a diagonal slant
+    static void PrintDiagonalSlantedText(string text)
+    {
+        int lineCount = 5;  // Number of rows in each letter pattern
+        int offset = 0;  // Controls diagonal slant (both vertical and horizontal shift)
+
+        // Iterate through each letter in the text
+        foreach (char letter in text.ToUpper())
+        {
+            if (LetterPatterns.ContainsKey(letter))
+            {
+                string[] pattern = LetterPatterns[letter];
+
+                // Print each row of the letter's pattern with the diagonal slant
+                for (int i = 0; i < lineCount; i++)
+                {
+                    // Print leading spaces for diagonal slant and then the letter's row
+                    Console.WriteLine(new string(' ', offset) + pattern[i]);
+                }
+
+                // Increase the horizontal offset for the next letter to create the diagonal effect
+                offset += 5;
+            }
+        }
+    }
+
+    static void Main()
+    {
+        Console.Write("Enter a name: ");
+        string name = Console.ReadLine();  // Get full input including spaces
+
+        PrintDiagonalSlantedText(name);  // Print name in diagonal slant
+    }
+}

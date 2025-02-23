@@ -1,0 +1,98 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        string choice = " ";
+
+        do
+        {
+            Console.Write("Enter a name/word: ");
+            string name = Console.ReadLine().ToUpper();
+
+            // Input validation: Check for non-letter characters
+            bool isValidInput = true;
+            foreach (char c in name)
+            {
+                if (!char.IsLetter(c) && c != ' ')
+                {
+                    isValidInput = false;
+                    break;
+                }
+            }
+
+            if (!isValidInput)
+            {
+                Console.WriteLine("\nInvalid input/choice. Please enter letters only.");
+                {
+
+                    Console.Write("\nWould you like to continue? Press Y for Yes, X for Exit: \n");
+                    choice = Console.ReadLine().ToUpper();
+
+                    continue;
+                }
+            }
+
+            int spaceOffset = 0;
+            foreach (char letter in name)
+            {
+                if (LetterPatterns.TryGetValue(letter, out string[] pattern))
+                {
+                    PrintSlantedLetter(pattern, spaceOffset);
+                    spaceOffset += pattern.Length;
+                }
+            }
+
+            Console.Write("\nWould you like to continue? Press Y for Yes, X for Exit: ");
+            choice = Console.ReadLine().ToUpper();
+
+            // Validate choice input
+            while (choice != "Y" && choice != "X")
+            {
+                Console.WriteLine("\nInvalid input/choice. Please enter Y or X only.");
+                Console.Write("\nWould you like to continue? Press Y for Yes, X for Exit: ");
+                choice = Console.ReadLine().ToUpper();
+            }
+
+        } while (choice == "Y");
+    }
+
+    static void PrintSlantedLetter(string[] pattern, int spaceOffset)
+    {
+        foreach (string line in pattern)
+            Console.WriteLine(new string(' ', spaceOffset) + line);
+    }
+
+    static Dictionary<char, string[]> LetterPatterns = new Dictionary<char, string[]>() {
+
+        {'A', new string[]{"  *  "," * * ","*****","*   *","*   *"}},
+        {'B', new string[]{"**** ","*   *","**** ","*   *","**** "}},
+        {'C', new string[]{" ****","*    ","*    ","*    "," ****"}},
+        {'D', new string[]{"**** ","*   *","*   *","*   *","**** "}},
+        {'E', new string[]{"*****","*    ","*****","*    ","*****"}},
+        {'F', new string[]{"*****","*    ","**** ","*    ","*    "}},
+        {'G', new string[]{" ****","*    ","*  **","*   *"," ****"}},
+        {'H', new string[]{"*   *","*   *","*****","*   *","*   *"}},
+        {'I', new string[]{"*****","  *  ","  *  ","  *  ","*****"}},
+        {'J', new string[]{" *****","    * ","    * "," *  * ","  **  "}},
+        {'K', new string[]{"*   *","*  * ","**   ","*  * ","*   *"}},
+        {'L', new string[]{"*    ","*    ","*    ","*    ","*****"}},
+        {'M', new string[]{"*   *","** **","* * *","*   *","*   *"}},
+        {'N', new string[]{"*   *","**  *","* * *","*  **","*   *"}},
+        {'O', new string[]{"*****","*   *","*   *","*   *","*****"}},
+        {'P', new string[]{"*****","*   *","*****","*    ","*    "}},
+        {'Q', new string[]{"*****","*   *","* * *","*  **","*****"}},
+        {'R', new string[]{"*****","*   *","*****","*  * ","*   *"}},
+        {'S', new string[]{"*****","*    ","*****","    *","*****"}},
+        {'T', new string[]{"*****","  *  ","  *  ","  *  ","  *  "}},
+        {'U', new string[]{"*   *","*   *","*   *","*   *","*****"}},
+        {'V', new string[]{"*   *","*   *","*   *"," * * ","  *  "}},
+        {'W', new string[]{"*   *","*   *","* * *","** **","*   *"}},
+        {'X', new string[]{"*   *"," * * ","  *  "," * * ","*   *"}},
+        {'Y', new string[]{"*   *"," * * ","  *  ","  *  ","  *  "}},
+        {'Z', new string[]{"*****","   * ","  *  "," *   ","*****"}},
+        {' ', new string[]{"     ","     ","     ","     ","     "}}
+    };
+}

@@ -1,0 +1,447 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+//Each letter in the Alphabet has a corresponding function that converts the letter to stars and then display
+void A(int offset) {
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == 0 || i == 2 || j == 0 || j == 4) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void B(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == 0 || i == 4 || j == 0 || j == 4 || i == 2) {
+                if (i != j){
+                    cout << "*";
+                }
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void C(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == 0 || i == 4 || j == 0) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void D(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == 0 || i == 4 || j == 0 || j == 4) {
+                if (!(i == j))
+                    cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void E(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == 0 || i == 4 || j == 0 || i == 2) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void F(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == 0 || i == 2 || j == 0) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void G(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == 0 || i == 4 || j == 0 || i == 2 && j >= 2 || j == 4 && i >= 2) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void H(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == 2 || j == 4 || j == 0) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void I(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (j == 2) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void J(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (j == 4 || i == 4 || j == 0 && i >= 2) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void K(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (j == 0 || j == 4 - i && i <= 2 || i == j && i >= 2) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void L(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == 4 || j == 0) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void M(int offset){
+    for (int i = 0; i < 7; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 7; j++) {
+            if (i == j && i <= 3 || j == 6 - i && i <= 3 || j == 0 || j == 6) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void N(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == j || j == 4 || j == 0) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void O(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if ((i == 0 || i == 4 || j == 0 || j == 4) && i != j) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void P(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == 0 || i == 2 || j == 0 || j == 4 && i <= 2) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void Q(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == 0 && j != 4 || i == 3 && j != 4 || j == 0 && i != 4 || j == 3 && i != 4 || i == 4 && j == 4) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void R(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == 0 || i == 2 || j == 0 || j == 4 && i <= 2 || i == j && i >= 2) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void S(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == 0 || i == 4 || j == 0 && i <= 2 || i == 2 || j == 4 && i >= 2) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void T(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == 0 || j == 2) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void U(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (j == 4 || i == 4 || j == 0) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void V(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == j && j <= 2 || j == 4 - i && j >= 2) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void W(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (j == 0 || j == 4 || j == i && j >= 2 || j == 4 - i && j <= 2) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void X(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == j || j == 4 - i) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void Y(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (j == 0 && i <= 2 || i == 2 || j == 4) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void Z(int offset){
+    for (int i = 0; i < 5; i++) {
+        cout << string(offset, ' ');
+        for (int j = 0; j < 5; j++) {
+            if (i == 0 || i == 4 || j == 4 - i) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+//display the letters that has been converted to stars
+void displayAsStars(char letters, int offset) {
+  
+    switch(letters) {
+        case 'A': A(offset); break;
+        case 'B': B(offset); break;
+        case 'C': C(offset); break;
+        case 'D': D(offset); break;
+        case 'E': E(offset); break;
+        case 'F': F(offset); break;
+        case 'G': G(offset); break;
+        case 'H': H(offset); break;
+        case 'I': I(offset); break;
+        case 'J': J(offset); break;
+        case 'K': K(offset); break;
+        case 'L': L(offset); break;
+        case 'M': M(offset); break;
+        case 'N': N(offset); break;
+        case 'O': O(offset); break;
+        case 'P': P(offset); break;
+        case 'Q': Q(offset); break;
+        case 'R': R(offset); break;
+        case 'S': S(offset); break;
+        case 'T': T(offset); break;
+        case 'U': U(offset); break;
+        case 'V': V(offset); break;
+        case 'W': W(offset); break;
+        case 'X': X(offset); break;
+        case 'Y': Y(offset); break;
+        case 'Z': Z(offset); break;
+        default: break;
+    }
+  
+}
+
+//check if the input is an alphabet
+bool isValidName(const string& name) {
+    for (char alphabet : name) {
+        if (!isalpha(alphabet)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    string name;
+    
+    cout << "Enter Name: "; // user input
+    cin >> name;
+
+    int n = name.length(); //number of characters in the inputted string name
+    
+    // Convert the name to uppercase
+    for (int i = 0; i < n; i++) {
+        name[i] = toupper(name[i]);
+    }
+
+    char nameArr[n + 1]; //character array nameArr to store each characters in string name
+    strcpy(nameArr, name.c_str()); //copy the contents of the string name into the character array nameArr
+    
+    //call isValidName function
+    if (!isValidName(name)) {
+        cout << "Invalid input.";
+    }
+    
+    cout << "\n"; //display in the next line
+    
+    //call displayAsStars function
+    for (int i = 0; i < n; i++) {
+        displayAsStars(nameArr[i], i * 6); // Adjusting offset for diagonal display
+    }
+
+    return 0;
+}

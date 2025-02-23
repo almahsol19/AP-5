@@ -1,0 +1,93 @@
+#include <iostream>
+#include <string>
+#include <map>
+#include <vector>
+
+using namespace std;
+
+void printSlantedLetter(const vector<string>& pattern, int spaceOffset) {
+    for (const string& line : pattern) {
+        cout << string(spaceOffset, ' ') << line << endl;
+    }
+}
+
+int main() {
+    string choice;
+
+    do {
+        cout << "Enter a Name: ";
+        string name;
+        getline(cin, name); 
+
+        for (char &c : name) {
+            c = toupper(c);
+        }
+
+
+        bool isValidInput = true;
+        for (char c : name) {
+            if (!isalpha(c) && c != ' ') {
+                isValidInput = false;
+                break;
+            }
+        }
+
+        if (!isValidInput) {
+            cout << "\nInvalid input. Please enter only letters and spaces." << endl;
+            continue;
+        }
+
+        map<char, vector<string>> letterPatterns = {
+            {'A', {"  *  "," * * ","*****","*   *","*   *"}},
+            {'B', {"**** ","*   *","**** ","*   *","**** "}},
+            {'C', {" ****","*    ","*    ","*    "," ****"}},
+            {'D', {"**** ","*   *","*   *","*   *","**** "}},
+            {'E', {"*****","*    ","*****","*    ","*****"}},
+            {'F', {"*****","*    ","**** ","*    ","*    "}},
+            {'G', {" ****","*    ","*  **","*   *"," ****"}},
+            {'H', {"*   *","*   *","*****","*   *","*   *"}},
+            {'I', {"*****","  *  ","  *  ","  *  ","*****"}},
+            {'J', {" *****","    * ","    * "," *  * ","  **  "}},
+            {'K', {"*   *","*  * ","**   ","*  * ","*   *"}},
+            {'L', {"*    ","*    ","*    ","*    ","*****"}},
+            {'M', {"*   *","** **","* * *","*   *","*   *"}},
+            {'N', {"*   *","**  *","* * *","*  **","*   *"}},
+            {'O', {"*****","*   *","*   *","*   *","*****"}},
+            {'P', {"*****","*   *","*****","*    ","*    "}},
+            {'Q', {"*****","*   *","* * *","*  **","*****"}},
+            {'R', {"*****","*   *","*****","*  * ","*   *"}},
+            {'S', {"*****","*    ","*****","    *","*****"}},
+            {'T', {"*****","  *  ","  *  ","  *  ","  *  "}},
+            {'U', {"*   *","*   *","*   *","*   *","*****"}},
+            {'V', {"*   *","*   *","*   *"," * * ","  *  "}},
+            {'W', {"*   *","*   *","* * *","** **","*   *"}},
+            {'X', {"*   *"," * * ","  *  "," * * ","*   *"}},
+            {'Y', {"*   *"," * * ","  *  ","  *  ","  *  "}},
+            {'Z', {"*****","   * ","  *  "," *   ","*****"}},
+            {' ', {"     ","     ","     ","     ","     "}}
+        };
+
+        int spaceOffset = 0;
+        for (char letter : name) {
+            if (letterPatterns.count(letter)) {
+                printSlantedLetter(letterPatterns[letter], spaceOffset);
+                spaceOffset += letterPatterns[letter][0].length();
+            }
+        }
+
+        cout << "\nWould you like to continue? Press YES, NO: ";
+        cin >> choice;
+        cin.ignore(); 
+
+        
+        while (choice != "YES" && choice != "NO") {
+            cout << "\nInvalid choice. Please enter YES or NO." << endl;
+            cout << "\nWould you like to continue? Press YES, NO: ";
+            cin >> choice;
+            cin.ignore();
+        }
+
+    } while (choice == "YES");
+
+    return 0;
+}

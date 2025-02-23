@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter your Name: ");
+        string name = Console.ReadLine().ToUpper();
+
+        int spaceOffset = 0;
+
+        foreach (char letter in name)
+        {
+            if (LetterPatterns.ContainsKey(letter))
+            {
+                PrintSlantedLetter(LetterPatterns[letter], spaceOffset);
+                spaceOffset += 6;
+            }
+        }
+    }
+
+    static void PrintSlantedLetter(string[] pattern, int spaceOffset)
+    {
+        foreach (string line in pattern)
+        {
+            Console.WriteLine(new string(' ', spaceOffset) + line);
+        }
+    }
+
+
+    static Dictionary<char, string[]> LetterPatterns = new Dictionary<char, string[]>
+    {
+        { 'A', new string[] { "  *  ", " * * ", "*****", "*   *", "*   *" } },
+        { 'B', new string[] { "**** ", "*   *", "**** ", "*   *", "**** " } },
+        { 'C', new string[] { " ****", "*    ", "*    ", "*    ", " ****" } },
+        { 'D', new string[] { "**** ", "*   *", "*   *", "*   *", "**** " } },
+        { 'E', new string[] { "*****", "*    ", "**** ", "*    ", "*****" } },
+        { 'F', new string[] { "*****", "*    ", "**** ", "*    ", "*    " } },
+        { 'G', new string[] { " ****", "*    ", "*  **", "*   *", " ****" } },
+        { 'H', new string[] { "*   *", "*   *", "*****", "*   *", "*   *" } },
+        { 'I', new string[] { "*****", "  *  ", "  *  ", "  *  ", "*****" } },
+        { 'J', new string[] { " *****", "    * ", "    * ", " *  * ", "  **  " } },
+        { 'K', new string[] { "*   *", "*  * ", "**   ", "*  * ", "*   *" } },
+        { 'L', new string[] { "*    ", "*    ", "*    ", "*    ", "*****" } },
+        { 'M', new string[] { "*   *", "** **", "* * *", "*   *", "*   *" } },
+        { 'N', new string[] { "*   *", "**  *", "* * *", "*  **", "*   *" } },
+        { 'O', new string[] { "*****", "*   *", "*   *", "*   *", "*****" } },
+        { 'P', new string[] { "*****", "*   *", "*****", "*    ", "*    " } },
+        { 'Q', new string[] { "*****", "*   *", "* * *", "*  **", "*****" } },
+        { 'R', new string[] { "*****", "*   *", "*****", "*  * ", "*   *" } },
+        { 'S', new string[] { "*****", "*    ", "*****", "    *", "*****" } },
+        { 'T', new string[] { "*****", "  *  ", "  *  ", "  *  ", "  *  " } },
+        { 'U', new string[] { "*   *", "*   *", "*   *", "*   *", "*****" } },
+        { 'V', new string[] { "*   *", "*   *", "*   *", " * * ", "  *  " } },
+        { 'W', new string[] { "*   *", "*   *", "* * *", "** **", "*   *" } },
+        { 'X', new string[] { "*   *", " * * ", "  *  ", " * * ", "*   *" } },
+        { 'Y', new string[] { "*   *", " * * ", "  *  ", "  *  ", "  *  " } },
+        { 'Z', new string[] { "*****", "   * ", "  *  ", " *   ", "*****" } },
+        { ' ', new string[] { "     ", "     ", "     ", "     ", "     " } } // Space
+    };
+}
